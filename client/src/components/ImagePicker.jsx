@@ -28,7 +28,7 @@ export default function ImagePicker({ value, onChange }) {
       <label className="field-label">Image</label>
       <input
         className="text-input"
-        type="url"
+        type="text"
         value={value}
         placeholder="Paste an image URL or upload a file below"
         onChange={(event) => onChange(event.target.value)}

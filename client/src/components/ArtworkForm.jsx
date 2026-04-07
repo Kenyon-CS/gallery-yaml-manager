@@ -136,8 +136,13 @@ export default function ArtworkForm({ initialData, vocabularies, submitLabel, on
         <ImagePicker value={form.image_url} onChange={(value) => updateField('image_url', value)} />
         <div className="field-block">
           <label className="field-label">Source URL</label>
-          <input className="text-input" type="url" value={form.source_url} onChange={(e) => updateField('source_url', e.target.value)} />
-        </div>
+          <input
+            className="text-input"
+            type="text"
+            value={form.source_url}
+            onChange={(e) => updateField('source_url', e.target.value)}
+            placeholder="Optional external source page"
+          />        </div>
       </section>
 
       <section className="form-section">
