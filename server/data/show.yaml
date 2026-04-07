@@ -1,0 +1,141 @@
+schema_version: "2.0"
+show:
+  id: "vienna_exhibition_01"
+  title: "Vienna Exhibition"
+  subtitle: "Sample dataset for the Gallery YAML Manager"
+  curator: "Applied Algorithms"
+  source_museum: "Mixed reference set"
+  wall_id: "W1"
+  notes: "Sample starting data for Version 1 of the app."
+
+  controlled_vocabularies:
+    theme_tags:
+      - animal
+      - nature_study
+      - religious_study
+      - figure_study
+      - figure
+      - portrait
+      - self_portrait
+      - child_portrait
+      - landscape
+      - cityscape
+      - fantasy
+      - abstract_figure
+    periods:
+      - Northern Renaissance
+      - High Renaissance
+      - Impressionism
+      - Neo-Impressionism
+      - Post-Impressionism
+      - Symbolism
+      - Expressionism
+      - Modernism
+      - Avant-Garde
+    media:
+      - drawing
+      - painting
+      - watercolor
+      - mixed_media
+    palette_tags:
+      - earth
+      - brown
+      - natural
+      - green
+      - blue
+      - light
+      - dark
+      - gold
+      - warm
+      - neutral
+      - orange
+      - red
+    mood_tags:
+      - observational
+      - quiet
+      - precise
+      - devotional
+      - reflective
+      - calm
+      - immersive
+      - formal
+      - intense
+      - dramatic
+      - expressive
+      - playful
+
+  artworks:
+    - id: "A1"
+      title: "Hare"
+      artist: "Albrecht Dürer"
+      year: 1502
+      period: "Northern Renaissance"
+      medium: "watercolor"
+      width_ft: 1.7
+      height_ft: 2.1
+      orientation: "portrait"
+      image_url: "https://commons.wikimedia.org/wiki/Special:FilePath/Albrecht_D%C3%BCrer_-_Hare%2C_1502_-_Google_Art_Project.jpg"
+      source_url: "https://www.albertina.at/en/press/general-information/masterworks-of-the-albertina/"
+      primary_theme: "animal"
+      theme_tags: ["animal", "nature_study"]
+      visual_intensity: 0.40
+      focal_weight: 0.35
+      palette_tags: ["earth", "brown", "natural"]
+      mood_tags: ["observational", "quiet", "precise"]
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: "Can also be treated as a nature study."
+
+    - id: "A5"
+      title: "The Water Lily Pond"
+      artist: "Claude Monet"
+      year: 1917
+      period: "Impressionism"
+      medium: "painting"
+      width_ft: 2.8
+      height_ft: 1.6
+      orientation: "landscape"
+      image_url: ""
+      source_url: "https://www.albertina.at/en/press/general-information/masterworks-of-the-albertina/"
+      primary_theme: "landscape"
+      theme_tags: ["landscape", "nature_study"]
+      visual_intensity: 0.55
+      focal_weight: 0.55
+      palette_tags: ["green", "blue", "light"]
+      mood_tags: ["calm", "immersive"]
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: "Possible horizontal anchor work."
+
+    - id: "A8"
+      title: "Self-portrait in Orange Cloak"
+      artist: "Egon Schiele"
+      year: 1913
+      period: "Expressionism"
+      medium: "painting"
+      width_ft: 1.6
+      height_ft: 2.3
+      orientation: "portrait"
+      image_url: ""
+      source_url: "https://www.albertina.at/en/press/en-exhibitions/monet-to-picasso/"
+      primary_theme: "self_portrait"
+      theme_tags: ["self_portrait", "portrait", "figure"]
+      visual_intensity: 0.78
+      focal_weight: 0.72
+      palette_tags: ["orange", "dark", "warm"]
+      mood_tags: ["intense", "expressive"]
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: "Should score strongly in portrait-oriented walls."
