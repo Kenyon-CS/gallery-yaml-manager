@@ -1,4 +1,5 @@
 schema_version: "2.0"
+
 show:
   id: "vienna_exhibition_01"
   title: "Vienna Exhibition"
@@ -6,7 +7,7 @@ show:
   curator: "Applied Algorithms"
   source_museum: "Mixed reference set"
   wall_id: "W1"
-  notes: "Sample starting data for Version 1 of the app."
+  notes: "Sample starting data for Version 1 of the app, expanded to include photography and contemporary art."
 
   controlled_vocabularies:
     theme_tags:
@@ -22,6 +23,15 @@ show:
       - cityscape
       - fantasy
       - abstract_figure
+      - documentary
+      - street_scene
+      - architecture
+      - conceptual
+      - installation
+      - identity
+      - abstraction
+      - social_commentary
+
     periods:
       - Northern Renaissance
       - High Renaissance
@@ -32,11 +42,20 @@ show:
       - Expressionism
       - Modernism
       - Avant-Garde
+      - Contemporary
+      - Contemporary Photography
+
     media:
       - drawing
       - painting
       - watercolor
       - mixed_media
+      - photography
+      - digital_photography
+      - archival_pigment_print
+      - installation_art
+      - conceptual_art
+
     palette_tags:
       - earth
       - brown
@@ -50,6 +69,12 @@ show:
       - neutral
       - orange
       - red
+      - black_and_white
+      - grayscale
+      - vivid
+      - muted
+      - industrial
+
     mood_tags:
       - observational
       - quiet
@@ -63,6 +88,12 @@ show:
       - dramatic
       - expressive
       - playful
+      - documentary
+      - unsettling
+      - conceptual
+      - urban
+      - meditative
+      - critical
 
   artworks:
     - id: "A1"
@@ -139,3 +170,178 @@ show:
         x_ft: null
         y_ft: null
       notes: "Should score strongly in portrait-oriented walls."
+
+    - id: "A21"
+      title: "Migrant Mother"
+      artist: "Dorothea Lange"
+      year: 1936
+      period: "Contemporary Photography"
+      medium: "photography"
+      width_ft: 1.8
+      height_ft: 2.2
+      orientation: "portrait"
+      image_url: ""
+      source_url: "https://www.loc.gov/"
+      primary_theme: "documentary"
+      theme_tags: ["documentary", "portrait", "social_commentary", "identity"]
+      visual_intensity: 0.74
+      focal_weight: 0.80
+      palette_tags: ["black_and_white", "grayscale", "dark"]
+      mood_tags: ["documentary", "intense", "reflective", "critical"]
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: "Documentary photography entry with strong emotional focal power."
+
+    - id: "A22"
+      title: "Moonrise, Hernandez, New Mexico"
+      artist: "Ansel Adams"
+      year: 1941
+      period: "Contemporary Photography"
+      medium: "photography"
+      width_ft: 2.6
+      height_ft: 1.8
+      orientation: "landscape"
+      image_url: ""
+      source_url: "https://www.anseladams.com/"
+      primary_theme: "landscape"
+      theme_tags: ["landscape", "photography", "nature_study"]
+      visual_intensity: 0.68
+      focal_weight: 0.76
+      palette_tags: ["black_and_white", "grayscale", "light", "dark"]
+      mood_tags: ["meditative", "dramatic", "precise"]
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: "Strong photographic landscape anchor with high tonal contrast."
+
+    - id: "A23"
+      title: "Untitled Film Still #21"
+      artist: "Cindy Sherman"
+      year: 1978
+      period: "Contemporary"
+      medium: "photography"
+      width_ft: 1.9
+      height_ft: 2.3
+      orientation: "portrait"
+      image_url: ""
+      source_url: "https://www.moma.org/"
+      primary_theme: "identity"
+      theme_tags: ["identity", "self_portrait", "conceptual", "portrait"]
+      visual_intensity: 0.71
+      focal_weight: 0.79
+      palette_tags: ["black_and_white", "grayscale", "muted"]
+      mood_tags: ["conceptual", "unsettling", "reflective", "critical"]
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: "Useful bridge between portrait traditions and contemporary conceptual photography."
+
+    - id: "A24"
+      title: "99 Cent II Diptychon"
+      artist: "Andreas Gursky"
+      year: 2001
+      period: "Contemporary Photography"
+      medium: "archival_pigment_print"
+      width_ft: 4.5
+      height_ft: 2.4
+      orientation: "landscape"
+      image_url: ""
+      source_url: "https://www.sothebys.com/"
+      primary_theme: "street_scene"
+      theme_tags: ["street_scene", "architecture", "documentary", "abstraction"]
+      visual_intensity: 0.82
+      focal_weight: 0.90
+      palette_tags: ["vivid", "industrial", "multicolor"]
+      mood_tags: ["urban", "intense", "conceptual"]
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: "Large-scale contemporary photograph with strong visual pull; may dominate smaller walls."
+
+    - id: "A25"
+      title: "The Physical Impossibility of Death in the Mind of Someone Living"
+      artist: "Damien Hirst"
+      year: 1991
+      period: "Contemporary"
+      medium: "installation_art"
+      width_ft: 5.0
+      height_ft: 2.5
+      orientation: "landscape"
+      image_url: ""
+      source_url: "https://www.tate.org.uk/"
+      primary_theme: "installation"
+      theme_tags: ["installation", "conceptual", "animal", "social_commentary"]
+      visual_intensity: 0.88
+      focal_weight: 0.95
+      palette_tags: ["industrial", "blue", "light"]
+      mood_tags: ["unsettling", "conceptual", "intense", "critical"]
+      eligible: false
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: "Included as a contemporary reference object; likely unsuitable for a normal flat wall layout."
+
+    - id: "A26"
+      title: "Untitled"
+      artist: "Mark Rothko"
+      year: 1969
+      period: "Contemporary"
+      medium: "painting"
+      width_ft: 3.8
+      height_ft: 4.2
+      orientation: "portrait"
+      image_url: ""
+      source_url: "https://www.tate.org.uk/"
+      primary_theme: "abstraction"
+      theme_tags: ["abstraction", "conceptual"]
+      visual_intensity: 0.84
+      focal_weight: 0.88
+      palette_tags: ["dark", "red", "brown", "muted"]
+      mood_tags: ["meditative", "intense", "immersive"]
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: "Large contemporary abstract anchor work."
+
+    - id: "A27"
+      title: "Campbell's Soup Cans"
+      artist: "Andy Warhol"
+      year: 1962
+      period: "Contemporary"
+      medium: "painting"
+      width_ft: 3.2
+      height_ft: 2.4
+      orientation: "landscape"
+      image_url: ""
+      source_url: "https://www.moma.org/"
+      primary_theme: "social_commentary"
+      theme_tags: ["social_commentary", "conceptual", "abstraction", "street_scene"]
+      visual_intensity: 0.69
+      focal_weight: 0.83
+      palette_tags: ["red", "light", "industrial", "vivid"]
+      mood_tags: ["playful", "critical", "urban", "conceptual"]
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: "Contemporary pop work that can connect with conceptual and urban themes."
