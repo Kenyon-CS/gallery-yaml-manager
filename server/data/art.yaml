@@ -1,0 +1,485 @@
+schema_version: '2.0'
+art:
+  id: vienna_art_catalog_01
+  title: Vienna Art Catalog
+  subtitle: Artwork dataset for the Gallery YAML Manager
+  curator: Applied Algorithms
+  source_museum: Mixed reference set
+  notes: Artwork catalog split from the earlier show.yaml; includes photography and contemporary art.
+  controlled_vocabularies:
+    theme_tags:
+      - animal
+      - nature_study
+      - religious_study
+      - figure_study
+      - figure
+      - portrait
+      - self_portrait
+      - child_portrait
+      - landscape
+      - cityscape
+      - fantasy
+      - abstract_figure
+      - documentary
+      - street_scene
+      - architecture
+      - conceptual
+      - installation
+      - identity
+      - abstraction
+      - social_commentary
+      - photography
+    periods:
+      - Northern Renaissance
+      - High Renaissance
+      - Impressionism
+      - Neo-Impressionism
+      - Post-Impressionism
+      - Symbolism
+      - Expressionism
+      - Modernism
+      - Avant-Garde
+      - Contemporary
+      - Contemporary Photography
+    media:
+      - drawing
+      - painting
+      - watercolor
+      - mixed_media
+      - photography
+      - digital_photography
+      - archival_pigment_print
+      - installation_art
+      - conceptual_art
+    palette_tags:
+      - earth
+      - brown
+      - natural
+      - green
+      - blue
+      - light
+      - dark
+      - gold
+      - warm
+      - neutral
+      - orange
+      - red
+      - black_and_white
+      - grayscale
+      - vivid
+      - muted
+      - industrial
+      - multicolor
+    mood_tags:
+      - observational
+      - quiet
+      - precise
+      - devotional
+      - reflective
+      - calm
+      - immersive
+      - formal
+      - intense
+      - dramatic
+      - expressive
+      - playful
+      - documentary
+      - unsettling
+      - conceptual
+      - urban
+      - meditative
+      - critical
+  artworks:
+    - id: A1
+      title: Hare
+      artist: Albrecht Dürer
+      year: 1502
+      period: Northern Renaissance
+      medium: watercolor
+      width_ft: 1.7
+      height_ft: 2.1
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Albrecht_D%C3%BCrer_-_Hare%2C_1502_-_Google_Art_Project.jpg
+      source_url: https://www.albertina.at/en/press/general-information/masterworks-of-the-albertina/
+      primary_theme: animal
+      theme_tags:
+        - animal
+        - nature_study
+      visual_intensity: 0.4
+      focal_weight: 0.35
+      palette_tags:
+        - earth
+        - brown
+        - natural
+      mood_tags:
+        - observational
+        - quiet
+        - precise
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Can also be treated as a nature study.
+    - id: A5
+      title: The Water Lily Pond
+      artist: Claude Monet
+      year: 1917
+      period: Impressionism
+      medium: painting
+      width_ft: 2.8
+      height_ft: 1.6
+      orientation: landscape
+      image_url: /uploads/1775579659901-waterlillypond.jpg
+      source_url: https://www.albertina.at/en/press/general-information/masterworks-of-the-albertina/
+      primary_theme: landscape
+      theme_tags:
+        - landscape
+        - nature_study
+      visual_intensity: 0.55
+      focal_weight: 0.55
+      palette_tags:
+        - green
+        - blue
+        - light
+      mood_tags:
+        - calm
+        - immersive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Possible horizontal anchor work.
+    - id: A8
+      title: Self-portrait in Orange Cloak
+      artist: Egon Schiele
+      year: 1913
+      period: Expressionism
+      medium: painting
+      width_ft: 1.6
+      height_ft: 2.3
+      orientation: portrait
+      image_url: /uploads/1775579706247-2025-423-webp.webp
+      source_url: https://www.albertina.at/en/press/en-exhibitions/monet-to-picasso/
+      primary_theme: self_portrait
+      theme_tags:
+        - self_portrait
+        - portrait
+        - figure
+      visual_intensity: 0.78
+      focal_weight: 0.72
+      palette_tags:
+        - orange
+        - dark
+        - warm
+      mood_tags:
+        - intense
+        - expressive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Should score strongly in portrait-oriented walls.
+    - id: A21
+      title: Migrant Mother
+      artist: Dorothea Lange
+      year: 1936
+      period: Contemporary Photography
+      medium: photography
+      width_ft: 1.8
+      height_ft: 2.2
+      orientation: portrait
+      image_url: /uploads/1775579766763-lange-migrantmother02.jpg
+      source_url: https://www.loc.gov/
+      primary_theme: documentary
+      theme_tags:
+        - documentary
+        - portrait
+        - social_commentary
+        - identity
+      visual_intensity: 0.74
+      focal_weight: 0.8
+      palette_tags:
+        - black_and_white
+        - grayscale
+        - dark
+      mood_tags:
+        - documentary
+        - intense
+        - reflective
+        - critical
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Documentary photography entry with strong emotional focal power.
+    - id: A22
+      title: Moonrise, Hernandez, New Mexico
+      artist: Ansel Adams
+      year: 1941
+      period: Contemporary Photography
+      medium: photography
+      width_ft: 2.6
+      height_ft: 1.8
+      orientation: landscape
+      image_url: /uploads/1775579807707-moonrise-hernandez-new-mexico-cropped.jpg
+      source_url: https://www.anseladams.com/
+      primary_theme: landscape
+      theme_tags:
+        - landscape
+        - photography
+        - nature_study
+      visual_intensity: 0.68
+      focal_weight: 0.76
+      palette_tags:
+        - black_and_white
+        - grayscale
+        - light
+        - dark
+      mood_tags:
+        - meditative
+        - dramatic
+        - precise
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Strong photographic landscape anchor with high tonal contrast.
+    - id: A23
+      title: 'Untitled Film Still #21'
+      artist: Cindy Sherman
+      year: 1978
+      period: Contemporary
+      medium: photography
+      width_ft: 1.9
+      height_ft: 2.3
+      orientation: portrait
+      image_url: /uploads/1775579853771-untitled-film-still-21-cindy-sherman-photograph.jpg
+      source_url: https://www.moma.org/
+      primary_theme: identity
+      theme_tags:
+        - identity
+        - self_portrait
+        - conceptual
+        - portrait
+      visual_intensity: 0.71
+      focal_weight: 0.79
+      palette_tags:
+        - black_and_white
+        - grayscale
+        - muted
+      mood_tags:
+        - conceptual
+        - unsettling
+        - reflective
+        - critical
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Useful bridge between portrait traditions and contemporary conceptual photography.
+    - id: A24
+      title: 99 Cent II Diptychon
+      artist: Andreas Gursky
+      year: 2001
+      period: Contemporary Photography
+      medium: archival_pigment_print
+      width_ft: 4.5
+      height_ft: 2.4
+      orientation: landscape
+      image_url: /uploads/1775579956149-99-cent-ii-diptychon-photo-courtesy-of-sotheby-s.jpg
+      source_url: https://www.sothebys.com/
+      primary_theme: street_scene
+      theme_tags:
+        - street_scene
+        - architecture
+        - documentary
+        - abstraction
+      visual_intensity: 0.82
+      focal_weight: 0.9
+      palette_tags:
+        - vivid
+        - industrial
+        - multicolor
+      mood_tags:
+        - urban
+        - intense
+        - conceptual
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Large-scale contemporary photograph with strong visual pull; may dominate smaller walls.
+    - id: A25
+      title: The Physical Impossibility of Death in the Mind of Someone Living
+      artist: Damien Hirst
+      year: 1991
+      period: Contemporary
+      medium: installation_art
+      width_ft: 5
+      height_ft: 2.5
+      orientation: landscape
+      image_url: /uploads/1775579904307-hirst-shark.jpg
+      source_url: https://www.tate.org.uk/
+      primary_theme: installation
+      theme_tags:
+        - installation
+        - conceptual
+        - animal
+        - social_commentary
+      visual_intensity: 0.88
+      focal_weight: 0.95
+      palette_tags:
+        - industrial
+        - blue
+        - light
+      mood_tags:
+        - unsettling
+        - conceptual
+        - intense
+        - critical
+      eligible: false
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Included as a contemporary reference object; likely unsuitable for a normal flat wall layout.
+    - id: A26
+      title: Untitled
+      artist: Mark Rothko
+      year: 1969
+      period: Contemporary
+      medium: painting
+      width_ft: 3.8
+      height_ft: 4.2
+      orientation: portrait
+      image_url: /uploads/1775580104576-gray-and-brown.jpg
+      source_url: https://www.tate.org.uk/
+      primary_theme: abstraction
+      theme_tags:
+        - abstraction
+        - conceptual
+      visual_intensity: 0.84
+      focal_weight: 0.88
+      palette_tags:
+        - dark
+        - red
+        - brown
+        - muted
+      mood_tags:
+        - meditative
+        - intense
+        - immersive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Large contemporary abstract anchor work.
+    - id: A27
+      title: Campbell's Soup Cans
+      artist: Andy Warhol
+      year: 1962
+      period: Contemporary
+      medium: painting
+      width_ft: 3.2
+      height_ft: 2.4
+      orientation: landscape
+      image_url: /uploads/1775579614620-campbell-s-soup-cans-by-andy-warhol.jpg
+      source_url: https://www.moma.org/
+      primary_theme: social_commentary
+      theme_tags:
+        - social_commentary
+        - conceptual
+        - abstraction
+        - street_scene
+      visual_intensity: 0.69
+      focal_weight: 0.83
+      palette_tags:
+        - red
+        - light
+        - industrial
+        - vivid
+      mood_tags:
+        - playful
+        - critical
+        - urban
+        - conceptual
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Contemporary pop work that can connect with conceptual and urban themes.
+    - id: Kenyon-Angels
+      title: Kenyon Angels in Fog
+      artist: James Skon
+      year: 2026
+      period: Contemporary Photography
+      medium: photography
+      width_ft: 4
+      height_ft: 3
+      orientation: landscape
+      image_url: /uploads/1775579511569-5angles2.jpg
+      source_url: ''
+      primary_theme: landscape
+      theme_tags:
+        - nature_study
+        - landscape
+      visual_intensity: 0.5
+      focal_weight: 0.5
+      palette_tags:
+        - grayscale
+      mood_tags:
+        - quiet
+        - reflective
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: SKON2
+      title: Sunrise over Palermo Sicily
+      artist: James Skon
+      year: 2025
+      period: Contemporary Photography
+      medium: digital_photography
+      width_ft: 3
+      height_ft: 4
+      orientation: landscape
+      image_url: /uploads/1775649483536-palermosicily.jpeg
+      source_url: ''
+      primary_theme: cityscape
+      theme_tags:
+        - landscape
+        - cityscape
+      visual_intensity: 0.5
+      focal_weight: 0.5
+      palette_tags:
+        - gold
+      mood_tags: []
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''

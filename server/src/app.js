@@ -1,24 +1,34 @@
 import express from 'express';
 import path from 'path';
-import artworksRouter from './routes/artworks.js';
+import { fileURLToPath } from 'url';
+
 import uploadsRouter from './routes/uploads.js';
-import showYamlRouter from './routes/showYaml.js';
+import artRoutes from './routes/art.js';
+import dataRoutes from './routes/data.js';
+
 import { clientDistDir, uploadsDir } from './utils/paths.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
+// Static uploaded files
 app.use('/uploads', express.static(uploadsDir));
-app.use('/api/artworks', artworksRouter);
+
+// API routes
 app.use('/api/uploads', uploadsRouter);
-app.use('/api/show-yaml', showYamlRouter);
+app.use('/api/art', artRoutes);
+app.use('/api/data', dataRoutes);
 
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
+// Built React frontend
 app.use(express.static(clientDistDir));
 
 app.get('*', (req, res, next) => {

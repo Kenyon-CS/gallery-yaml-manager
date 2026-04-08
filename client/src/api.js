@@ -9,24 +9,28 @@ async function parseResponse(response) {
 export async function fetchArtworks(filters = {}) {
   const params = new URLSearchParams();
   Object.entries(filters).forEach(([key, value]) => {
-    if (value) params.set(key, value);
+    if (value !== undefined && value !== null && value !== '') {
+      params.set(key, value);
+    }
   });
-  const response = await fetch(`/api/artworks?${params.toString()}`);
+
+  const query = params.toString();
+  const response = await fetch(`/api/art${query ? `?${query}` : ''}`);
   return parseResponse(response);
 }
 
 export async function fetchArtwork(id) {
-  const response = await fetch(`/api/artworks/${id}`);
+  const response = await fetch(`/api/art/${id}`);
   return parseResponse(response);
 }
 
 export async function fetchVocabularies() {
-  const response = await fetch('/api/artworks/vocabularies');
+  const response = await fetch('/api/art/vocabularies');
   return parseResponse(response);
 }
 
 export async function createArtwork(payload) {
-  const response = await fetch('/api/artworks', {
+  const response = await fetch('/api/art', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
@@ -35,7 +39,7 @@ export async function createArtwork(payload) {
 }
 
 export async function updateArtwork(id, payload) {
-  const response = await fetch(`/api/artworks/${id}`, {
+  const response = await fetch(`/api/art/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
@@ -43,12 +47,31 @@ export async function updateArtwork(id, payload) {
   return parseResponse(response);
 }
 
+export async function deleteArtwork(id) {
+  const response = await fetch(`/api/art/${id}`, {
+    method: 'DELETE'
+  });
+  return parseResponse(response);
+}
+
 export async function uploadImage(file) {
   const formData = new FormData();
   formData.append('image', file);
+
   const response = await fetch('/api/uploads/image', {
     method: 'POST',
     body: formData
   });
+
+  return parseResponse(response);
+}
+
+export async function fetchAllData() {
+  const response = await fetch('/api/data/all');
+  return parseResponse(response);
+}
+
+export async function fetchResolvedArrangement(id) {
+  const response = await fetch(`/api/data/resolved-arrangements/${id}`);
   return parseResponse(response);
 }

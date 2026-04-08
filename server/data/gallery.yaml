@@ -1,0 +1,86 @@
+schema_version: "2.0"
+
+gallery:
+  id: "gallery_01"
+  name: "Algorithms Gallery"
+  subtitle: "Spaces for gallery layout experiments"
+  location: "Applied Algorithms Lab"
+  notes: "Initial gallery definition for the YAML manager and algorithms framework."
+
+  spaces:
+    - id: "W1"
+      room: "Main Gallery"
+      label: "North Wall"
+      type: "wall"
+      width_ft: 10.0
+      height_ft: 4.5
+
+      usable_x_min_ft: 0.0
+      usable_x_max_ft: 10.0
+      usable_y_min_ft: 0.0
+      usable_y_max_ft: 4.5
+
+      centerline_ft: 5.0
+      default_hang_y_ft: 1.0
+
+      light_level: 0.60
+      viewing_distance_ft: 8.0
+
+      notes: "Primary wall used for initial testing."
+
+    - id: "W2"
+      room: "Main Gallery"
+      label: "South Wall"
+      type: "wall"
+      width_ft: 12.0
+      height_ft: 4.5
+
+      usable_x_min_ft: 0.0
+      usable_x_max_ft: 12.0
+      usable_y_min_ft: 0.0
+      usable_y_max_ft: 4.5
+
+      centerline_ft: 6.0
+      default_hang_y_ft: 1.0
+
+      light_level: 0.55
+      viewing_distance_ft: 9.0
+
+      notes: "Slightly larger wall for wider arrangements."
+
+    - id: "W3"
+      room: "Side Gallery"
+      label: "East Wall"
+      type: "wall"
+      width_ft: 8.0
+      height_ft: 4.0
+
+      usable_x_min_ft: 0.0
+      usable_x_max_ft: 8.0
+      usable_y_min_ft: 0.0
+      usable_y_max_ft: 4.0
+
+      centerline_ft: 4.0
+      default_hang_y_ft: 1.0
+
+      light_level: 0.50
+      viewing_distance_ft: 7.0
+
+      notes: "Smaller wall useful for tighter experiments."
+
+  layout_defaults:
+    min_gap_ft: 0.30
+    ideal_gap_ft: 0.55
+    max_gap_ft: 0.95
+    snap_to_grid_ft: 0.01
+    no_overlap: true
+    stay_within_space: true
+    allow_vertical_offset: false
+    allow_stacking: false
+
+  rendering_defaults:
+    wall_color: "#f5f2eb"
+    frame_color: "#333333"
+    label_color: "#222222"
+    show_centerline: false
+    show_measurements: true

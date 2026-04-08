@@ -1,151 +1,203 @@
-import {
-  detectOrientation,
-  normalizeTagList,
-  parseBoolean,
-  parseInteger,
-  parseNumber
-} from '../utils/validation.js';
-import { backupShowYaml, loadShowData, saveShowData } from './yamlService.js';
+import { ART_FILE } from '../utils/filePaths.js';
+import { readYamlFile, writeYamlFile } from './yamlFileService.js';
 
-function normalizeArtworkPayload(payload) {
-  const widthFt = parseNumber(payload.width_ft, 'width_ft');
-  const heightFt = parseNumber(payload.height_ft, 'height_ft');
-  const locked = parseBoolean(payload.locked);
-
-  const artwork = {
-    id: String(payload.id || '').trim(),
-    title: String(payload.title || '').trim(),
-    artist: String(payload.artist || '').trim(),
-    year: parseInteger(payload.year, 'year'),
-    period: String(payload.period || '').trim(),
-    medium: String(payload.medium || '').trim(),
-    width_ft: widthFt,
-    height_ft: heightFt,
-    orientation: String(payload.orientation || detectOrientation(widthFt, heightFt)).trim(),
-    image_url: String(payload.image_url || '').trim(),
-    source_url: String(payload.source_url || '').trim(),
-    primary_theme: String(payload.primary_theme || '').trim(),
-    theme_tags: normalizeTagList(payload.theme_tags),
-    visual_intensity: parseNumber(payload.visual_intensity, 'visual_intensity'),
-    focal_weight: parseNumber(payload.focal_weight, 'focal_weight'),
-    palette_tags: normalizeTagList(payload.palette_tags),
-    mood_tags: normalizeTagList(payload.mood_tags),
-    eligible: parseBoolean(payload.eligible),
-    required: parseBoolean(payload.required),
-    locked,
-    locked_position: {
-      x_ft: locked ? parseNumber(payload.locked_x_ft, 'locked_x_ft') : null,
-      y_ft: locked ? parseNumber(payload.locked_y_ft, 'locked_y_ft') : null
-    },
-    notes: String(payload.notes || '').trim()
-  };
-
-  if (!artwork.id) throw new Error('id is required.');
-  if (!artwork.title) throw new Error('title is required.');
-  if (!artwork.artist) throw new Error('artist is required.');
-  if (artwork.year === null) throw new Error('year is required.');
-  if (!artwork.period) throw new Error('period is required.');
-  if (!artwork.medium) throw new Error('medium is required.');
-  if (artwork.width_ft === null) throw new Error('width_ft is required.');
-  if (artwork.height_ft === null) throw new Error('height_ft is required.');
-  if (!artwork.primary_theme) throw new Error('primary_theme is required.');
-  if (artwork.visual_intensity === null) throw new Error('visual_intensity is required.');
-  if (artwork.focal_weight === null) throw new Error('focal_weight is required.');
-
-  return artwork;
+function toNumber(value, fieldName) {
+  const num = Number(value);
+  if (Number.isNaN(num)) {
+    throw new Error(`Invalid numeric value for ${fieldName}`);
+  }
+  return num;
 }
 
-function matchesSearch(artwork, query) {
-  const q = query.toLowerCase();
-  return [
-    artwork.id,
-    artwork.title,
-    artwork.artist,
-    String(artwork.year),
-    artwork.period,
-    artwork.medium,
-    artwork.primary_theme,
-    ...(artwork.theme_tags || [])
-  ]
-    .filter(Boolean)
-    .some((value) => String(value).toLowerCase().includes(q));
+function normalizeArray(value) {
+  if (!value) return [];
+  return Array.isArray(value) ? value : [value];
+}
+
+function normalizeLockedPosition(input) {
+  if (!input) {
+    return { x_ft: null, y_ft: null };
+  }
+
+  return {
+    x_ft: input.x_ft === '' || input.x_ft == null ? null : Number(input.x_ft),
+    y_ft: input.y_ft === '' || input.y_ft == null ? null : Number(input.y_ft)
+  };
+}
+
+function validateRequiredString(value, fieldName) {
+  if (typeof value !== 'string' || !value.trim()) {
+    throw new Error(`${fieldName} is required`);
+  }
+}
+
+function buildArtworkPayload(payload, existing = null) {
+  validateRequiredString(payload.id ?? existing?.id, 'id');
+  validateRequiredString(payload.title, 'title');
+  validateRequiredString(payload.artist, 'artist');
+  validateRequiredString(payload.period, 'period');
+  validateRequiredString(payload.medium, 'medium');
+  validateRequiredString(payload.primary_theme, 'primary_theme');
+
+  const result = {
+    id: String(payload.id ?? existing?.id).trim(),
+    title: String(payload.title).trim(),
+    artist: String(payload.artist).trim(),
+    year: toNumber(payload.year, 'year'),
+    period: String(payload.period).trim(),
+    medium: String(payload.medium).trim(),
+    width_ft: toNumber(payload.width_ft, 'width_ft'),
+    height_ft: toNumber(payload.height_ft, 'height_ft'),
+    orientation: payload.orientation ? String(payload.orientation).trim() : '',
+    image_url: payload.image_url ? String(payload.image_url).trim() : '',
+    source_url: payload.source_url ? String(payload.source_url).trim() : '',
+    primary_theme: String(payload.primary_theme).trim(),
+    theme_tags: normalizeArray(payload.theme_tags),
+    visual_intensity: toNumber(payload.visual_intensity ?? 0.5, 'visual_intensity'),
+    focal_weight: toNumber(payload.focal_weight ?? 0.5, 'focal_weight'),
+    palette_tags: normalizeArray(payload.palette_tags),
+    mood_tags: normalizeArray(payload.mood_tags),
+    eligible: Boolean(payload.eligible),
+    required: Boolean(payload.required),
+    locked: Boolean(payload.locked),
+    locked_position: normalizeLockedPosition(
+      payload.locked_position ?? {
+        x_ft: payload.locked_x_ft,
+        y_ft: payload.locked_y_ft
+      }
+    ),
+    notes: payload.notes ? String(payload.notes) : ''
+  };
+
+  if (result.visual_intensity < 0 || result.visual_intensity > 1) {
+    throw new Error('visual_intensity must be between 0 and 1');
+  }
+
+  if (result.focal_weight < 0 || result.focal_weight > 1) {
+    throw new Error('focal_weight must be between 0 and 1');
+  }
+
+  return result;
+}
+
+async function loadArtData() {
+  const data = await readYamlFile(ART_FILE);
+
+  if (!data?.art) {
+    throw new Error('art.yaml is missing top-level "art" object.');
+  }
+
+  if (!Array.isArray(data.art.artworks)) {
+    throw new Error('art.yaml is missing art.artworks.');
+  }
+
+  if (!data.art.controlled_vocabularies) {
+    data.art.controlled_vocabularies = {};
+  }
+
+  return data;
+}
+
+async function saveArtData(data) {
+  await writeYamlFile(ART_FILE, data);
 }
 
 export async function listArtworks(filters = {}) {
-  const data = await loadShowData();
-  let artworks = data.show.artworks;
+  const data = await loadArtData();
+  let artworks = data.art.artworks;
 
-  if (filters.search) {
-    artworks = artworks.filter((artwork) => matchesSearch(artwork, String(filters.search)));
+  const search = (filters.search || '').toLowerCase().trim();
+  const period = (filters.period || '').trim();
+  const theme = (filters.theme || '').trim();
+  const artist = (filters.artist || '').trim();
+
+  if (search) {
+    artworks = artworks.filter((artwork) => {
+      const haystack = [
+        artwork.title,
+        artwork.artist,
+        artwork.id,
+        artwork.primary_theme,
+        ...(artwork.theme_tags || [])
+      ]
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase();
+
+      return haystack.includes(search);
+    });
   }
-  if (filters.period) {
-    artworks = artworks.filter((artwork) => artwork.period === filters.period);
+
+  if (period) {
+    artworks = artworks.filter((artwork) => artwork.period === period);
   }
-  if (filters.theme) {
+
+  if (theme) {
     artworks = artworks.filter(
-      (artwork) => artwork.primary_theme === filters.theme || (artwork.theme_tags || []).includes(filters.theme)
+      (artwork) =>
+        artwork.primary_theme === theme ||
+        (artwork.theme_tags || []).includes(theme)
     );
   }
-  if (filters.artist) {
-    artworks = artworks.filter((artwork) => artwork.artist === filters.artist);
+
+  if (artist) {
+    artworks = artworks.filter((artwork) => artwork.artist === artist);
   }
 
-  artworks = [...artworks].sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
-
-  return { metadata: data.show, artworks };
+  return artworks;
 }
 
 export async function getArtworkById(id) {
-  const data = await loadShowData();
-  const artwork = data.show.artworks.find((item) => item.id === id);
-  if (!artwork) {
-    throw new Error(`Artwork '${id}' not found.`);
-  }
-  return artwork;
+  const data = await loadArtData();
+  return data.art.artworks.find((artwork) => artwork.id === id) || null;
 }
 
 export async function getVocabularies() {
-  const data = await loadShowData();
-  const vocab = data.show.controlled_vocabularies || {};
-  const artists = [...new Set((data.show.artworks || []).map((art) => art.artist).filter(Boolean))].sort();
+  const data = await loadArtData();
+  const vocabularies = data.art.controlled_vocabularies || {};
+  const artworks = data.art.artworks || [];
+
+  const artists = [...new Set(
+    artworks
+      .map((artwork) => artwork.artist)
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b))
+  )];
+
   return {
-    theme_tags: vocab.theme_tags || [],
-    periods: vocab.periods || [],
-    media: vocab.media || [],
-    palette_tags: vocab.palette_tags || [],
-    mood_tags: vocab.mood_tags || [],
+    ...vocabularies,
     artists
   };
 }
 
 export async function createArtwork(payload) {
-  const data = await loadShowData();
-  const artwork = normalizeArtworkPayload(payload);
+  const data = await loadArtData();
+  const artworks = data.art.artworks;
 
-  if (data.show.artworks.some((item) => item.id === artwork.id)) {
-    throw new Error(`Artwork id '${artwork.id}' already exists.`);
+  const artwork = buildArtworkPayload(payload);
+
+  if (artworks.some((item) => item.id === artwork.id)) {
+    throw new Error(`Artwork with id "${artwork.id}" already exists`);
   }
 
-  data.show.artworks.push(artwork);
-  await backupShowYaml();
-  await saveShowData(data);
+  artworks.push(artwork);
+  await saveArtData(data);
   return artwork;
 }
 
 export async function updateArtwork(id, payload) {
-  const data = await loadShowData();
-  const index = data.show.artworks.findIndex((item) => item.id === id);
+  const data = await loadArtData();
+  const artworks = data.art.artworks;
+  const index = artworks.findIndex((item) => item.id === id);
+
   if (index === -1) {
-    throw new Error(`Artwork '${id}' not found.`);
+    throw new Error(`Artwork "${id}" not found`);
   }
 
-  const artwork = normalizeArtworkPayload(payload);
-  if (artwork.id !== id && data.show.artworks.some((item) => item.id === artwork.id)) {
-    throw new Error(`Artwork id '${artwork.id}' already exists.`);
-  }
+  const existing = artworks[index];
+  const updated = buildArtworkPayload({ ...payload, id }, existing);
 
-  data.show.artworks[index] = artwork;
-  await backupShowYaml();
-  await saveShowData(data);
-  return artwork;
+  artworks[index] = updated;
+  await saveArtData(data);
+  return updated;
 }
