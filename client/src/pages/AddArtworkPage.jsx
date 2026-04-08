@@ -30,7 +30,7 @@ export default function AddArtworkPage() {
     <div className="stack-lg">
       <section className="hero card">
         <h1>Add Artwork</h1>
-        <p>Create a new artwork record and save it into show.yaml.</p>
+        <p>Create a new artwork record and save it into art.yaml.</p>
       </section>
       {error ? <div className="notice error">{error}</div> : null}
       <ArtworkForm vocabularies={vocabularies} submitLabel="Create Artwork" onSubmit={handleSubmit} busy={busy} />

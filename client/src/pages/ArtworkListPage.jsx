@@ -20,7 +20,14 @@ export default function ArtworkListPage() {
   async function loadVocabularies() {
     try {
       const data = await fetchVocabularies();
-      setVocabularies(data);
+      setVocabularies({
+        periods: data.periods || [],
+        theme_tags: data.theme_tags || [],
+        artists: data.artists || [],
+        media: data.media || [],
+        palette_tags: data.palette_tags || [],
+        mood_tags: data.mood_tags || []
+      });
     } catch (err) {
       setError(err.message);
     }
@@ -47,7 +54,7 @@ export default function ArtworkListPage() {
     <div className="stack-lg">
       <section className="hero card">
         <h1>Artwork Browser</h1>
-        <p>Search, inspect, and edit artworks stored in show.yaml.</p>
+        <p>Search, inspect, and edit artworks stored in art.yaml.</p>
       </section>
 
       <section className="card">
