@@ -1,3 +1,4 @@
+// server/src/routes/art.js
 import express from 'express';
 import {
   listArtworks,

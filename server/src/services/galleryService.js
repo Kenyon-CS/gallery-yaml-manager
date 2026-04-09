@@ -1,3 +1,4 @@
+// server/src/services/galleryService.js
 import { GALLERY_FILE } from '../utils/filePaths.js';
 import { readYamlFile, writeYamlFile } from './yamlFileService.js';
 

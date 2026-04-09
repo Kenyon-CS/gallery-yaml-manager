@@ -6,12 +6,11 @@ export async function loadShowData() {
   const raw = await fs.readFile(showYamlPath, 'utf8');
   const parsed = yaml.load(raw);
 
-  if (!parsed?.show || !Array.isArray(parsed.show.artworks)) {
-    throw new Error('show.yaml is missing show.artworks.');
+  if (!parsed?.show) {
+    throw new Error('show.yaml is missing top-level show object.');
   }
 
-  parsed.show.controlled_vocabularies ??= {};
-  parsed.show.artworks ??= [];
+  parsed.show.arrangements ??= [];
   return parsed;
 }
 

@@ -1,3 +1,4 @@
+// server/src/app.js
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -10,6 +11,7 @@ import galleryRoutes from './routes/gallery.js';
 
 import { clientDistDir, uploadsDir } from './utils/paths.js';
 import scoringSettingsRouter from './routes/scoringSettings.js';
+import showYamlRoutes from './routes/showYaml.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,6 +36,8 @@ app.get('/api/health', (_req, res) => {
 });
 
 app.use('/api/scoring-settings', scoringSettingsRouter);
+
+app.use('/api/show', showYamlRoutes);
 
 // Built React frontend
 app.use(express.static(clientDistDir));
