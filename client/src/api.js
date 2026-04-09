@@ -75,3 +75,23 @@ export async function fetchResolvedArrangement(id) {
   const response = await fetch(`/api/data/resolved-arrangements/${id}`);
   return parseResponse(response);
 }
+
+export async function fetchGallery() {
+  const response = await fetch('/api/gallery');
+  return parseResponse(response);
+}
+
+export async function fetchGalleryRooms() {
+  const response = await fetch('/api/gallery/rooms');
+  return parseResponse(response);
+}
+
+export async function fetchGalleryDoors() {
+  const response = await fetch('/api/gallery/doors');
+  return parseResponse(response);
+}
+
+export async function fetchGalleryWindows() {
+  const response = await fetch('/api/gallery/windows');
+  return parseResponse(response);
+}

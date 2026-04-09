@@ -3,6 +3,8 @@ import ArtworkListPage from './pages/ArtworkListPage.jsx';
 import AddArtworkPage from './pages/AddArtworkPage.jsx';
 import EditArtworkPage from './pages/EditArtworkPage.jsx';
 import ArtworkDetailPage from './pages/ArtworkDetailPage.jsx';
+import GalleryPage from './pages/GalleryPage.jsx';
+import ScoringSettingsPage from './pages/ScoringSettingsPage.jsx';
 
 export default function App() {
   return (
@@ -13,6 +15,8 @@ export default function App() {
           <nav className="topnav">
             <NavLink to="/" end>Artworks</NavLink>
             <NavLink to="/artworks/new">Add Artwork</NavLink>
+            <NavLink to="/gallery">Gallery</NavLink>
+            <NavLink to="/scoring-settings">Scoring Settings</NavLink>
           </nav>
         </div>
       </header>
@@ -23,6 +27,8 @@ export default function App() {
           <Route path="/artworks/new" element={<AddArtworkPage />} />
           <Route path="/artworks/:id" element={<ArtworkDetailPage />} />
           <Route path="/artworks/:id/edit" element={<EditArtworkPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/scoring-settings" element={<ScoringSettingsPage />} />
         </Routes>
       </main>
     </div>
