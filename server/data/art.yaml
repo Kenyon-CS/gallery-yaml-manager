@@ -680,3 +680,27 @@ art:
         claw-like rogue wave threatening three fishing boats off the coast of Japan, with a small, serene Mount Fuji in
         the background. Part of the Thirty-Six Views of Mount Fuji series, it symbolizes the fleeting nature of life and
         nature's power, using vibrant Prussian blue and dynamic composition to capture a dramatic struggle.
+    - id: Godwin1
+      title: Godwin in Hartford
+      artist: James Skon
+      year: 2026
+      period: Contemporary Photography
+      medium: digital_photography
+      width_ft: 3
+      height_ft: 4
+      orientation: portrait
+      image_url: /uploads/1775948974017-img-4982.JPG
+      source_url: ''
+      primary_theme: figure
+      theme_tags: []
+      visual_intensity: 0.5
+      focal_weight: 0.5
+      palette_tags: []
+      mood_tags: []
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
