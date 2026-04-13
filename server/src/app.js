@@ -12,6 +12,7 @@ import galleryRoutes from './routes/gallery.js';
 import { clientDistDir, uploadsDir } from './utils/paths.js';
 import scoringSettingsRouter from './routes/scoringSettings.js';
 import showYamlRoutes from './routes/showYaml.js';
+import projectRoutes from './routes/projects.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,6 +39,8 @@ app.get('/api/health', (_req, res) => {
 app.use('/api/scoring-settings', scoringSettingsRouter);
 
 app.use('/api/show', showYamlRoutes);
+
+app.use('/api/projects', projectRoutes);
 
 // Built React frontend
 app.use(express.static(clientDistDir));

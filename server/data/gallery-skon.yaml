@@ -1,0 +1,19 @@
+schema_version: '2.0'
+gallery:
+  id: skon
+  name: Skon
+  subtitle: ''
+  location: ''
+  notes: ''
+  rooms: []
+  doors: []
+  windows: []
+  layout_defaults:
+    min_gap_ft: 0.3
+    ideal_gap_ft: 0.55
+    max_gap_ft: 0.95
+    snap_to_grid_ft: 0.01
+    no_overlap: true
+    stay_within_space: true
+    allow_vertical_offset: false
+    allow_stacking: false

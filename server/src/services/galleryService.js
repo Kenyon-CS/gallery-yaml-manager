@@ -1,5 +1,5 @@
 // server/src/services/galleryService.js
-import { GALLERY_FILE } from '../utils/filePaths.js';
+import { getActiveFile, resolveDataFilePath } from './projectService.js';
 import { readYamlFile, writeYamlFile } from './yamlFileService.js';
 
 function toNumber(value, fieldName) {
@@ -26,7 +26,11 @@ function loadArray(value, fallback = []) {
 }
 
 async function loadGalleryData() {
-  const data = await readYamlFile(GALLERY_FILE);
+  const filename = await getActiveFile('gallery');
+  const filePath = resolveDataFilePath(filename);
+  console.log('[GALLERY FILE]', filename);
+
+  const data = await readYamlFile(filePath);
 
   if (!data?.gallery) {
     throw new Error('gallery.yaml is missing top-level "gallery" object.');
@@ -44,7 +48,10 @@ async function loadGalleryData() {
 }
 
 async function saveGalleryData(data) {
-  await writeYamlFile(GALLERY_FILE, data);
+  const filename = await getActiveFile('gallery');
+  const filePath = resolveDataFilePath(filename);
+
+  await writeYamlFile(filePath, data);
 }
 
 function ensureUniqueId(items, id, itemType, excludeId = null) {

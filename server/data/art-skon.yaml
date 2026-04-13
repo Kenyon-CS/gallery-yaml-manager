@@ -1,0 +1,15 @@
+schema_version: '2.0'
+art:
+  id: skon
+  title: Skon
+  subtitle: ''
+  curator: ''
+  source_museum: ''
+  notes: ''
+  controlled_vocabularies:
+    theme_tags: []
+    periods: []
+    media: []
+    palette_tags: []
+    mood_tags: []
+  artworks: []

@@ -6,6 +6,7 @@ import ArtworkDetailPage from './pages/ArtworkDetailPage.jsx';
 import GalleryPage from './pages/GalleryPage.jsx';
 import ScoringSettingsPage from './pages/ScoringSettingsPage.jsx';
 import WallVisualizerPage from './pages/WallVisualizerPage.jsx';
+import ProjectManagerPage from './pages/ProjectManagerPage.jsx';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
             <NavLink to="/artworks/new">Add Artwork</NavLink>
             <NavLink to="/gallery">Gallery</NavLink>
             <NavLink to="/visualizer">Visualizer</NavLink>
+            <NavLink to="/projects">Projects</NavLink>
             <NavLink to="/scoring-settings">Scoring Settings</NavLink>
           </nav>
         </div>
@@ -31,6 +33,7 @@ export default function App() {
           <Route path="/artworks/:id/edit" element={<EditArtworkPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/visualizer" element={<WallVisualizerPage />} />
+          <Route path="/projects" element={<ProjectManagerPage />} />
           <Route path="/scoring-settings" element={<ScoringSettingsPage />} />
         </Routes>
       </main>

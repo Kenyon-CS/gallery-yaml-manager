@@ -1,0 +1,10 @@
+schema_version: '2.0'
+show:
+  id: skon
+  title: Skon
+  subtitle: ''
+  gallery_id: skon
+  scoring_profile_id: skon
+  curator: ''
+  notes: ''
+  arrangements: []

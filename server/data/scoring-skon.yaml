@@ -1,0 +1,22 @@
+schema_version: '2.0'
+scoring:
+  profile_id: skon
+  name: Skon
+  description: ''
+  normalization:
+    raw_metric_scale: 0_to_100
+    final_score_scale: 0_to_1
+  hard_constraints: {}
+  criteria: {}
+  pairwise_tables: {}
+  aggregation:
+    method: weighted_average
+    use_only_nonfailed_criteria: false
+    include_bonus_terms: false
+    include_penalty_terms: true
+  adaptive_feedback:
+    enabled: false
+    allow_weight_updates: true
+    allow_threshold_updates: false
+    learning_rate: 0.15
+    max_weight_change_per_round: 0.1

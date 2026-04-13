@@ -1,9 +1,18 @@
 import fs from 'fs/promises';
 import yaml from 'js-yaml';
-import { showYamlPath } from '../utils/paths.js';
+
+import { getActiveFile, resolveDataFilePath } from './projectService.js';
+
+async function getShowFilePath() {
+  const filename = await getActiveFile('show');
+  return resolveDataFilePath(filename);
+}
 
 export async function loadShowData() {
-  const raw = await fs.readFile(showYamlPath, 'utf8');
+  const filePath = await getShowFilePath();
+  console.log('[LOAD SHOW]', filePath);
+
+  const raw = await fs.readFile(filePath, 'utf8');
   const parsed = yaml.load(raw);
 
   if (!parsed?.show) {
@@ -15,18 +24,25 @@ export async function loadShowData() {
 }
 
 export async function backupShowYaml() {
+  const filePath = await getShowFilePath();
+
   const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-  const backupPath = `${showYamlPath}.${timestamp}.bak`;
-  const content = await fs.readFile(showYamlPath, 'utf8');
+  const backupPath = `${filePath}.${timestamp}.bak`;
+
+  const content = await fs.readFile(filePath, 'utf8');
   await fs.writeFile(backupPath, content, 'utf8');
+
   return backupPath;
 }
 
 export async function saveShowData(data) {
+  const filePath = await getShowFilePath();
+
   const dumped = yaml.dump(data, {
     lineWidth: 120,
     noRefs: true,
     sortKeys: false
   });
-  await fs.writeFile(showYamlPath, dumped, 'utf8');
+
+  await fs.writeFile(filePath, dumped, 'utf8');
 }
