@@ -680,3 +680,200 @@ art:
         claw-like rogue wave threatening three fishing boats off the coast of Japan, with a small, serene Mount Fuji in
         the background. Part of the Thirty-Six Views of Mount Fuji series, it symbolizes the fleeting nature of life and
         nature's power, using vibrant Prussian blue and dynamic composition to capture a dramatic struggle.
+    - id: A100
+      title: Mona Lisa
+      artist: Leonardo da Vinci
+      year: 1503
+      period: High Renaissance
+      medium: painting
+      width_ft: 2.5
+      height_ft: 3.5
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg
+      source_url: https://www.louvre.fr/
+      primary_theme: portrait
+      theme_tags: [portrait, figure]
+      visual_intensity: 0.7
+      focal_weight: 0.95
+      palette_tags: [earth, brown, muted]
+      mood_tags: [calm, reflective]
+
+    - id: A101
+      title: The Last Supper
+      artist: Leonardo da Vinci
+      year: 1498
+      period: High Renaissance
+      medium: painting
+      width_ft: 29
+      height_ft: 15
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_da_Vinci_-_The_Last_Supper_high_res.jpg
+      source_url: https://www.milanocastello.it/
+      primary_theme: religious_study
+      theme_tags: [religious_study, figure]
+      visual_intensity: 0.85
+      focal_weight: 0.95
+      palette_tags: [earth, muted]
+      mood_tags: [dramatic, devotional]
+
+    - id: A102
+      title: The Creation of Adam
+      artist: Michelangelo
+      year: 1512
+      period: High Renaissance
+      medium: painting
+      width_ft: 18
+      height_ft: 9
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo_-_Creation_of_Adam.jpg
+      source_url: https://www.vatican.va/
+      primary_theme: religious_study
+      theme_tags: [figure, religious_study]
+      visual_intensity: 0.9
+      focal_weight: 0.95
+      palette_tags: [light, natural]
+      mood_tags: [dramatic, expressive]
+
+    - id: A103
+      title: The School of Athens
+      artist: Raphael
+      year: 1511
+      period: High Renaissance
+      medium: painting
+      width_ft: 25
+      height_ft: 16
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/School_of_Athens.jpg
+      source_url: https://www.vatican.va/
+      primary_theme: figure
+      theme_tags: [figure, architecture]
+      visual_intensity: 0.85
+      focal_weight: 0.9
+      palette_tags: [warm, natural]
+      mood_tags: [formal, reflective]
+
+    - id: A104
+      title: The Night Watch
+      artist: Rembrandt
+      year: 1642
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 12
+      height_ft: 14
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/The_Nightwatch_by_Rembrandt.jpg
+      source_url: https://www.rijksmuseum.nl/
+      primary_theme: figure
+      theme_tags: [figure, portrait]
+      visual_intensity: 0.9
+      focal_weight: 0.95
+      palette_tags: [dark, warm]
+      mood_tags: [dramatic, intense]
+
+    - id: A105
+      title: Girl with a Pearl Earring
+      artist: Johannes Vermeer
+      year: 1665
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 1.5
+      height_ft: 2
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Johannes_Vermeer_-_Girl_with_a_Pearl_Earring.jpg
+      source_url: https://www.mauritshuis.nl/
+      primary_theme: portrait
+      theme_tags: [portrait]
+      visual_intensity: 0.6
+      focal_weight: 0.9
+      palette_tags: [dark, blue]
+      mood_tags: [quiet, reflective]
+
+    - id: A106
+      title: The Birth of Venus
+      artist: Sandro Botticelli
+      year: 1486
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 9
+      height_ft: 6
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Birth_of_Venus_Botticelli.jpg
+      source_url: https://www.uffizi.it/
+      primary_theme: figure
+      theme_tags: [figure, fantasy]
+      visual_intensity: 0.7
+      focal_weight: 0.85
+      palette_tags: [light, pastel]
+      mood_tags: [calm, poetic]
+
+    - id: A107
+      title: Las Meninas
+      artist: Diego Velázquez
+      year: 1656
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 10
+      height_ft: 9
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Las_Meninas_01.jpg
+      source_url: https://www.museodelprado.es/
+      primary_theme: portrait
+      theme_tags: [portrait, figure]
+      visual_intensity: 0.8
+      focal_weight: 0.9
+      palette_tags: [dark, natural]
+      mood_tags: [formal, reflective]
+
+    - id: A108
+      title: Liberty Leading the People
+      artist: Eugène Delacroix
+      year: 1830
+      period: Modernism
+      medium: painting
+      width_ft: 10
+      height_ft: 8
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/La_Libert%C3%A9_guidant_le_peuple.jpg
+      source_url: https://www.louvre.fr/
+      primary_theme: social_commentary
+      theme_tags: [figure, social_commentary]
+      visual_intensity: 0.9
+      focal_weight: 0.95
+      palette_tags: [red, dark]
+      mood_tags: [dramatic, intense]
+
+    - id: A109
+      title: The Great Wave off Kanagawa
+      artist: Katsushika Hokusai
+      year: 1831
+      period: Modernism
+      medium: drawing
+      width_ft: 1.2
+      height_ft: 0.8
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/The_Great_Wave_off_Kanagawa.jpg
+      source_url: https://www.metmuseum.org/
+      primary_theme: landscape
+      theme_tags: [landscape, nature_study]
+      visual_intensity: 0.8
+      focal_weight: 0.9
+      palette_tags: [blue, vivid]
+      mood_tags: [dramatic]
+
+    - id: A110
+      title: Starry Night
+      artist: Vincent van Gogh
+      year: 1889
+      period: Post-Impressionism
+      medium: painting
+      width_ft: 3
+      height_ft: 2.5
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/The_Starry_Night.jpg
+      source_url: https://www.moma.org/
+      primary_theme: landscape
+      theme_tags: [landscape, abstraction]
+      visual_intensity: 0.9
+      focal_weight: 0.95
+      palette_tags: [blue, vivid]
+      mood_tags: [expressive, immersive]

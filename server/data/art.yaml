@@ -680,23 +680,99 @@ art:
         claw-like rogue wave threatening three fishing boats off the coast of Japan, with a small, serene Mount Fuji in
         the background. Part of the Thirty-Six Views of Mount Fuji series, it symbolizes the fleeting nature of life and
         nature's power, using vibrant Prussian blue and dynamic composition to capture a dramatic struggle.
-    - id: Godwin1
-      title: Godwin in Hartford
-      artist: James Skon
-      year: 2026
-      period: Contemporary Photography
-      medium: digital_photography
-      width_ft: 3
-      height_ft: 4
+    - id: A100
+      title: Mona Lisa
+      artist: Leonardo da Vinci
+      year: 1503
+      period: High Renaissance
+      medium: painting
+      width_ft: 2.5
+      height_ft: 3.5
       orientation: portrait
-      image_url: /uploads/1775948974017-img-4982.JPG
-      source_url: ''
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg
+      source_url: https://www.louvre.fr/
+      primary_theme: portrait
+      theme_tags:
+        - portrait
+        - figure
+      visual_intensity: 0.7
+      focal_weight: 0.95
+      palette_tags:
+        - earth
+        - brown
+        - muted
+      mood_tags:
+        - calm
+        - reflective
+    - id: A101
+      title: The Last Supper
+      artist: Leonardo da Vinci
+      year: 1498
+      period: High Renaissance
+      medium: painting
+      width_ft: 29
+      height_ft: 15
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Leonardo_da_Vinci_-_The_Last_Supper_high_res.jpg
+      source_url: https://www.milanocastello.it/
+      primary_theme: religious_study
+      theme_tags:
+        - religious_study
+        - figure
+      visual_intensity: 0.85
+      focal_weight: 0.95
+      palette_tags:
+        - earth
+        - muted
+      mood_tags:
+        - dramatic
+        - devotional
+    - id: A102
+      title: The Creation of Adam
+      artist: Michelangelo
+      year: 1512
+      period: High Renaissance
+      medium: painting
+      width_ft: 18
+      height_ft: 9
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo_-_Creation_of_Adam.jpg
+      source_url: https://www.vatican.va/
+      primary_theme: religious_study
+      theme_tags:
+        - figure
+        - religious_study
+      visual_intensity: 0.9
+      focal_weight: 0.95
+      palette_tags:
+        - light
+        - natural
+      mood_tags:
+        - dramatic
+        - expressive
+    - id: A103
+      title: The School of Athens
+      artist: Raphael
+      year: 1511
+      period: High Renaissance
+      medium: painting
+      width_ft: 25
+      height_ft: 16
+      orientation: landscape
+      image_url: /uploads/1776172427220-dsc01525-1024x768.jpg
+      source_url: https://www.vatican.va/
       primary_theme: figure
-      theme_tags: []
-      visual_intensity: 0.5
-      focal_weight: 0.5
-      palette_tags: []
-      mood_tags: []
+      theme_tags:
+        - figure
+        - architecture
+      visual_intensity: 0.85
+      focal_weight: 0.9
+      palette_tags:
+        - warm
+        - natural
+      mood_tags:
+        - formal
+        - reflective
       eligible: true
       required: false
       locked: false
@@ -704,3 +780,1685 @@ art:
         x_ft: null
         y_ft: null
       notes: ''
+    - id: A104
+      title: The Night Watch
+      artist: Rembrandt
+      year: 1642
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 12
+      height_ft: 14
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/The_Nightwatch_by_Rembrandt.jpg
+      source_url: https://www.rijksmuseum.nl/
+      primary_theme: figure
+      theme_tags:
+        - figure
+        - portrait
+      visual_intensity: 0.9
+      focal_weight: 0.95
+      palette_tags:
+        - dark
+        - warm
+      mood_tags:
+        - dramatic
+        - intense
+    - id: A105
+      title: Girl with a Pearl Earring
+      artist: Johannes Vermeer
+      year: 1665
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 1.5
+      height_ft: 2
+      orientation: portrait
+      image_url: /uploads/1776172626191-1665-girl-with-a-pearl-earring.jpg
+      source_url: https://www.mauritshuis.nl/
+      primary_theme: portrait
+      theme_tags:
+        - portrait
+      visual_intensity: 0.6
+      focal_weight: 0.9
+      palette_tags:
+        - dark
+        - blue
+      mood_tags:
+        - quiet
+        - reflective
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A106
+      title: The Birth of Venus
+      artist: Sandro Botticelli
+      year: 1486
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 9
+      height_ft: 6
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Birth_of_Venus_Botticelli.jpg
+      source_url: https://www.uffizi.it/
+      primary_theme: figure
+      theme_tags:
+        - figure
+        - fantasy
+      visual_intensity: 0.7
+      focal_weight: 0.85
+      palette_tags:
+        - light
+        - pastel
+      mood_tags:
+        - calm
+        - poetic
+    - id: A107
+      title: Las Meninas
+      artist: Diego Velázquez
+      year: 1656
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 10
+      height_ft: 9
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Las_Meninas_01.jpg
+      source_url: https://www.museodelprado.es/
+      primary_theme: portrait
+      theme_tags:
+        - portrait
+        - figure
+      visual_intensity: 0.8
+      focal_weight: 0.9
+      palette_tags:
+        - dark
+        - natural
+      mood_tags:
+        - formal
+        - reflective
+    - id: A108
+      title: Liberty Leading the People
+      artist: Eugène Delacroix
+      year: 1830
+      period: Modernism
+      medium: painting
+      width_ft: 10
+      height_ft: 8
+      orientation: landscape
+      image_url: /uploads/1776172592936-image-4-14-26-at-9-15-am.jpeg
+      source_url: https://www.louvre.fr/
+      primary_theme: social_commentary
+      theme_tags:
+        - figure
+        - social_commentary
+      visual_intensity: 0.9
+      focal_weight: 0.95
+      palette_tags:
+        - red
+        - dark
+      mood_tags:
+        - dramatic
+        - intense
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A109
+      title: The Great Wave off Kanagawa
+      artist: Katsushika Hokusai
+      year: 1831
+      period: Modernism
+      medium: drawing
+      width_ft: 1.2
+      height_ft: 0.8
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/The_Great_Wave_off_Kanagawa.jpg
+      source_url: https://www.metmuseum.org/
+      primary_theme: landscape
+      theme_tags:
+        - landscape
+        - nature_study
+      visual_intensity: 0.8
+      focal_weight: 0.9
+      palette_tags:
+        - blue
+        - vivid
+      mood_tags:
+        - dramatic
+    - id: A110
+      title: Starry Night
+      artist: Vincent van Gogh
+      year: 1889
+      period: Post-Impressionism
+      medium: painting
+      width_ft: 3
+      height_ft: 2.5
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/The_Starry_Night.jpg
+      source_url: https://www.moma.org/
+      primary_theme: landscape
+      theme_tags:
+        - landscape
+        - abstraction
+      visual_intensity: 0.9
+      focal_weight: 0.95
+      palette_tags:
+        - blue
+        - vivid
+      mood_tags:
+        - expressive
+        - immersive
+    - id: A111
+      title: American Gothic
+      artist: Grant Wood
+      year: 1930
+      period: Modernism
+      medium: painting
+      width_ft: 2.6
+      height_ft: 3.1
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg
+      source_url: https://www.artic.edu/
+      primary_theme: portrait
+      theme_tags:
+        - portrait
+        - social_commentary
+      visual_intensity: 0.6
+      focal_weight: 0.85
+      palette_tags:
+        - earth
+        - muted
+      mood_tags:
+        - formal
+        - reflective
+    - id: A112
+      title: Nighthawks
+      artist: Edward Hopper
+      year: 1942
+      period: Modernism
+      medium: painting
+      width_ft: 5
+      height_ft: 2.5
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Nighthawks_by_Edward_Hopper_1942.jpg
+      source_url: https://www.artic.edu/
+      primary_theme: cityscape
+      theme_tags:
+        - cityscape
+        - social_commentary
+      visual_intensity: 0.75
+      focal_weight: 0.9
+      palette_tags:
+        - dark
+        - green
+      mood_tags:
+        - quiet
+        - urban
+    - id: A113
+      title: The Kiss
+      artist: Gustav Klimt
+      year: 1908
+      period: Symbolism
+      medium: painting
+      width_ft: 6
+      height_ft: 6
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Gustav_Klimt_016.jpg
+      source_url: https://www.belvedere.at/
+      primary_theme: figure
+      theme_tags:
+        - figure
+        - portrait
+      visual_intensity: 0.85
+      focal_weight: 0.9
+      palette_tags:
+        - gold
+        - vivid
+      mood_tags:
+        - immersive
+        - expressive
+    - id: A114
+      title: Composition VIII
+      artist: Wassily Kandinsky
+      year: 1923
+      period: Modernism
+      medium: painting
+      width_ft: 4
+      height_ft: 4
+      orientation: landscape
+      image_url: /uploads/1776172682498-37-262-ph-web-1.jpg
+      source_url: https://www.guggenheim.org/
+      primary_theme: abstraction
+      theme_tags:
+        - abstraction
+      visual_intensity: 0.9
+      focal_weight: 0.85
+      palette_tags:
+        - multicolor
+        - vivid
+      mood_tags:
+        - playful
+        - intense
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A115
+      title: Broadway Boogie Woogie
+      artist: Piet Mondrian
+      year: 1943
+      period: Modernism
+      medium: painting
+      width_ft: 4
+      height_ft: 4
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Piet_Mondrian,_1942_-_Broadway_Boogie_Woogie.jpg
+      source_url: https://www.moma.org/
+      primary_theme: abstraction
+      theme_tags:
+        - abstraction
+      visual_intensity: 0.8
+      focal_weight: 0.8
+      palette_tags:
+        - primary
+        - vivid
+      mood_tags:
+        - playful
+    - id: A116
+      title: Guernica
+      artist: Pablo Picasso
+      year: 1937
+      period: Modernism
+      medium: painting
+      width_ft: 25
+      height_ft: 11
+      orientation: landscape
+      image_url: /uploads/1776172742853-de00050-2-jpg.jpeg
+      source_url: https://www.museoreinasofia.es/
+      primary_theme: social_commentary
+      theme_tags:
+        - social_commentary
+        - abstraction
+      visual_intensity: 0.95
+      focal_weight: 1
+      palette_tags:
+        - black_and_white
+      mood_tags:
+        - intense
+        - dramatic
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A117
+      title: No. 5, 1948
+      artist: Jackson Pollock
+      year: 1948
+      period: Contemporary
+      medium: painting
+      width_ft: 8
+      height_ft: 4
+      orientation: landscape
+      image_url: /uploads/1776172864956-maxresdefault.jpg
+      source_url: https://www.moma.org/
+      primary_theme: abstraction
+      theme_tags:
+        - abstraction
+      visual_intensity: 0.9
+      focal_weight: 0.9
+      palette_tags:
+        - earth
+        - brown
+      mood_tags:
+        - intense
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A118
+      title: A Sunday Afternoon on the Island of La Grande Jatte
+      artist: Georges Seurat
+      year: 1886
+      period: Neo-Impressionism
+      medium: painting
+      width_ft: 10
+      height_ft: 7
+      orientation: landscape
+      image_url: /uploads/1776172904058-a-sunday-on-la-grande-jatte-georges-seurat-1884.jpg
+      source_url: https://www.artic.edu/
+      primary_theme: figure
+      theme_tags:
+        - figure
+        - landscape
+      visual_intensity: 0.7
+      focal_weight: 0.85
+      palette_tags:
+        - light
+        - green
+      mood_tags:
+        - calm
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A119
+      title: Bal du moulin de la Galette
+      artist: Pierre-Auguste Renoir
+      year: 1876
+      period: Impressionism
+      medium: painting
+      width_ft: 8
+      height_ft: 6
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Pierre-Auguste_Renoir,_Le_Moulin_de_la_Galette.jpg
+      source_url: https://www.musee-orsay.fr/
+      primary_theme: figure
+      theme_tags:
+        - figure
+        - social_commentary
+      visual_intensity: 0.75
+      focal_weight: 0.85
+      palette_tags:
+        - light
+        - warm
+      mood_tags:
+        - playful
+    - id: A120
+      title: Olympia
+      artist: Édouard Manet
+      year: 1863
+      period: Modernism
+      medium: painting
+      width_ft: 6
+      height_ft: 4
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Edouard_Manet_-_Olympia_-_Google_Art_Project.jpg
+      source_url: https://www.musee-orsay.fr/
+      primary_theme: figure
+      theme_tags:
+        - figure
+        - social_commentary
+      visual_intensity: 0.8
+      focal_weight: 0.9
+      palette_tags:
+        - light
+        - dark
+      mood_tags:
+        - critical
+    - id: A121
+      title: David
+      artist: Michelangelo
+      year: 1504
+      period: High Renaissance
+      medium: Sculpture
+      width_ft: 3
+      height_ft: 17
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Michelangelo%27s_David_-_right_view_2.jpg
+      source_url: https://www.galleriaaccademiafirenze.it/
+      primary_theme: figure
+      theme_tags:
+        - figure
+      visual_intensity: 0.85
+      focal_weight: 0.95
+      palette_tags:
+        - light
+        - natural
+      mood_tags:
+        - formal
+        - dramatic
+      eligible: false
+      notes: freestanding sculpture — should not be wall-placed
+    - id: A122
+      title: The Thinker
+      artist: Auguste Rodin
+      year: 1902
+      period: Modernism
+      medium: Sculpture
+      width_ft: 2
+      height_ft: 6
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/The_Thinker,_Rodin.jpg
+      source_url: https://www.musee-rodin.fr/
+      primary_theme: figure
+      theme_tags:
+        - figure
+      visual_intensity: 0.75
+      focal_weight: 0.85
+      palette_tags:
+        - dark
+      mood_tags:
+        - reflective
+      eligible: false
+      notes: sculpture — placement constraint edge case
+    - id: A123
+      title: Balloon Dog (Orange)
+      artist: Jeff Koons
+      year: 1994
+      period: Contemporary
+      medium: Sculpture
+      width_ft: 10
+      height_ft: 10
+      orientation: landscape
+      image_url: /uploads/1776172990833-balloondog-orange-copyright-jeff-koons.jpg
+      source_url: https://www.guggenheim.org/
+      primary_theme: conceptual
+      theme_tags:
+        - conceptual
+      visual_intensity: 0.9
+      focal_weight: 0.9
+      palette_tags:
+        - vivid
+        - orange
+      mood_tags:
+        - playful
+      eligible: false
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: large sculpture — intentionally incompatible
+    - id: A124
+      title: Spiral Jetty
+      artist: Robert Smithson
+      year: 1970
+      period: Contemporary
+      medium: installation_art
+      width_ft: 1500
+      height_ft: 1500
+      orientation: landscape
+      image_url: /uploads/1776173036064-smithson-spiral-jetty-gorgoni-02-2048w.jpg
+      source_url: https://www.diaart.org/
+      primary_theme: conceptual
+      theme_tags:
+        - installation
+        - conceptual
+      visual_intensity: 0.7
+      focal_weight: 0.8
+      palette_tags:
+        - earth
+      mood_tags:
+        - conceptual
+      eligible: false
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: land art — extreme edge case
+    - id: A125
+      title: The Persistence of Memory
+      artist: Salvador Dalí
+      year: 1931
+      period: Modernism
+      medium: painting
+      width_ft: 2
+      height_ft: 1.5
+      orientation: landscape
+      image_url: /uploads/1776173099535-the-persistence-of-memory.jpg
+      source_url: https://www.moma.org/
+      primary_theme: abstraction
+      theme_tags:
+        - abstraction
+        - fantasy
+      visual_intensity: 0.7
+      focal_weight: 0.85
+      palette_tags:
+        - earth
+        - blue
+      mood_tags:
+        - unsettling
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A126
+      title: The Son of Man
+      artist: René Magritte
+      year: 1964
+      period: Modernism
+      medium: painting
+      width_ft: 3
+      height_ft: 3.5
+      orientation: portrait
+      image_url: /uploads/1776173186277-magritte-thesonofman.jpg
+      source_url: https://www.musee-magritte-museum.be/
+      primary_theme: identity
+      theme_tags:
+        - identity
+        - conceptual
+      visual_intensity: 0.7
+      focal_weight: 0.85
+      palette_tags:
+        - green
+        - muted
+      mood_tags:
+        - conceptual
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A127
+      title: Whistler's Mother
+      artist: James McNeill Whistler
+      year: 1871
+      period: Modernism
+      medium: painting
+      width_ft: 4
+      height_ft: 5
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Whistlers_Mother_high_res.jpg
+      source_url: https://www.musee-orsay.fr/
+      primary_theme: portrait
+      theme_tags:
+        - portrait
+      visual_intensity: 0.5
+      focal_weight: 0.75
+      palette_tags:
+        - gray
+        - muted
+      mood_tags:
+        - calm
+    - id: A128
+      title: The Sleeping Gypsy
+      artist: Henri Rousseau
+      year: 1897
+      period: Post-Impressionism
+      medium: painting
+      width_ft: 6
+      height_ft: 4
+      orientation: landscape
+      image_url: /uploads/1776172941424-la-bohe-mienne-endormie.jpg
+      source_url: https://www.moma.org/
+      primary_theme: fantasy
+      theme_tags:
+        - fantasy
+        - landscape
+      visual_intensity: 0.65
+      focal_weight: 0.8
+      palette_tags:
+        - warm
+        - dark
+      mood_tags:
+        - dreamlike
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A129
+      title: Christina's World
+      artist: Andrew Wyeth
+      year: 1948
+      period: Modernism
+      medium: painting
+      width_ft: 4
+      height_ft: 2.5
+      orientation: landscape
+      image_url: /uploads/1776173146628-christinasworld.jpg
+      source_url: https://www.moma.org/
+      primary_theme: landscape
+      theme_tags:
+        - landscape
+      visual_intensity: 0.6
+      focal_weight: 0.8
+      palette_tags:
+        - earth
+      mood_tags:
+        - quiet
+        - reflective
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A130
+      title: The Garden of Earthly Delights
+      artist: Hieronymus Bosch
+      year: 1505
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 13
+      height_ft: 7
+      orientation: landscape
+      image_url: /uploads/1776173239535-the-garden-of-earthly-delights.jpg
+      source_url: https://www.museodelprado.es/
+      primary_theme: fantasy
+      theme_tags:
+        - fantasy
+      visual_intensity: 0.95
+      focal_weight: 0.95
+      palette_tags:
+        - multicolor
+      mood_tags:
+        - intense
+        - unsettling
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A131
+      title: The Arnolfini Portrait
+      artist: Jan van Eyck
+      year: 1434
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 2.5
+      height_ft: 3
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Van_Eyck_-_Arnolfini_Portrait.jpg
+      source_url: https://www.nationalgallery.org.uk/
+      primary_theme: portrait
+      theme_tags:
+        - portrait
+      visual_intensity: 0.7
+      focal_weight: 0.85
+      palette_tags:
+        - green
+        - warm
+      mood_tags:
+        - formal
+    - id: A132
+      title: The Third of May 1808
+      artist: Francisco Goya
+      year: 1814
+      period: Modernism
+      medium: painting
+      width_ft: 11
+      height_ft: 8
+      orientation: landscape
+      image_url: /uploads/1776173287495-el-tres-de-mayo-by-francisco-de-goya-from-prado-thin-black-margin.jpg
+      source_url: https://www.museodelprado.es/
+      primary_theme: social_commentary
+      theme_tags:
+        - social_commentary
+      visual_intensity: 0.95
+      focal_weight: 0.95
+      palette_tags:
+        - dark
+        - light
+      mood_tags:
+        - dramatic
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A133
+      title: Wanderer above the Sea of Fog
+      artist: Caspar David Friedrich
+      year: 1818
+      period: Romanticism
+      medium: painting
+      width_ft: 3
+      height_ft: 4
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg
+      source_url: https://www.hamburger-kunsthalle.de/
+      primary_theme: landscape
+      theme_tags:
+        - landscape
+      visual_intensity: 0.75
+      focal_weight: 0.85
+      palette_tags:
+        - blue
+        - muted
+      mood_tags:
+        - reflective
+    - id: A134
+      title: The Hay Wain
+      artist: John Constable
+      year: 1821
+      period: Romanticism
+      medium: painting
+      width_ft: 6
+      height_ft: 4
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/John_Constable_-_The_Hay_Wain.jpg
+      source_url: https://www.nationalgallery.org.uk/
+      primary_theme: landscape
+      theme_tags:
+        - landscape
+      visual_intensity: 0.6
+      focal_weight: 0.75
+      palette_tags:
+        - green
+      mood_tags:
+        - calm
+    - id: A135
+      title: Impression, Sunrise
+      artist: Claude Monet
+      year: 1872
+      period: Impressionism
+      medium: painting
+      width_ft: 2
+      height_ft: 1.5
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Claude_Monet,_Impression,_soleil_levant.jpg
+      source_url: https://www.musee-marmottan.fr/
+      primary_theme: landscape
+      theme_tags:
+        - landscape
+      visual_intensity: 0.6
+      focal_weight: 0.75
+      palette_tags:
+        - orange
+        - blue
+      mood_tags:
+        - calm
+    - id: A136
+      title: Luncheon of the Boating Party
+      artist: Pierre-Auguste Renoir
+      year: 1881
+      period: Impressionism
+      medium: painting
+      width_ft: 8
+      height_ft: 5
+      orientation: landscape
+      image_url: /uploads/1776173316242-pierre-auguste-renoir-luncheon-of-the-boating-party-google-art-project.jpg
+      source_url: https://www.phillipscollection.org/
+      primary_theme: figure
+      theme_tags:
+        - figure
+      visual_intensity: 0.75
+      focal_weight: 0.85
+      palette_tags:
+        - warm
+      mood_tags:
+        - playful
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A137
+      title: The Card Players
+      artist: Paul Cézanne
+      year: 1895
+      period: Post-Impressionism
+      medium: painting
+      width_ft: 4
+      height_ft: 3
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/The_Card_Players.jpg
+      source_url: https://www.musee-orsay.fr/
+      primary_theme: figure
+      theme_tags:
+        - figure
+      visual_intensity: 0.6
+      focal_weight: 0.8
+      palette_tags:
+        - earth
+      mood_tags:
+        - quiet
+    - id: A138
+      title: The Sleeping Venus
+      artist: Giorgione
+      year: 1510
+      period: High Renaissance
+      medium: painting
+      width_ft: 6
+      height_ft: 3
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Giorgione_-_Sleeping_Venus_-_Google_Art_Project_2.jpg
+      source_url: https://www.gallerieaccademia.it/
+      primary_theme: figure
+      theme_tags:
+        - figure
+      visual_intensity: 0.6
+      focal_weight: 0.8
+      palette_tags:
+        - natural
+      mood_tags:
+        - calm
+    - id: A139
+      title: Venus of Urbino
+      artist: Titian
+      year: 1538
+      period: High Renaissance
+      medium: painting
+      width_ft: 5
+      height_ft: 4
+      orientation: landscape
+      image_url: /uploads/1776173358988-960px-tiziano-venere-di-urbino-google-art-project.jpg
+      source_url: https://www.uffizi.it/
+      primary_theme: figure
+      theme_tags:
+        - figure
+      visual_intensity: 0.7
+      focal_weight: 0.85
+      palette_tags:
+        - warm
+      mood_tags:
+        - formal
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
+    - id: A140
+      title: Fountain
+      artist: Marcel Duchamp
+      year: 1917
+      period: Avant-Garde
+      medium: conceptual_art
+      width_ft: 2
+      height_ft: 2
+      orientation: portrait
+      image_url: /uploads/1776173406332-marcel-duchamp-1917-fountain-photograph-by-alfred-stieglitz.jpg
+      source_url: https://www.tate.org.uk/
+      primary_theme: conceptual
+      theme_tags:
+        - conceptual
+      visual_intensity: 0.5
+      focal_weight: 0.8
+      palette_tags:
+        - white
+      mood_tags:
+        - conceptual
+      eligible: false
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: conceptual object — not wall-mountable
+    - id: A140
+      title: Fountain
+      artist: Marcel Duchamp
+      year: 1917
+      period: Avant-Garde
+      medium: conceptual_art
+      width_ft: 2
+      height_ft: 2
+      orientation: portrait
+      image_url: >-
+        https://commons.wikimedia.org/wiki/Special:FilePath/Marcel_Duchamp%2C_1917%2C_Fountain%2C_photograph_by_Alfred_Stieglitz.jpg
+      source_url: https://www.tate.org.uk/
+      primary_theme: conceptual
+      theme_tags:
+        - conceptual
+      visual_intensity: 0.5
+      focal_weight: 0.8
+      palette_tags:
+        - light
+      mood_tags:
+        - conceptual
+      eligible: false
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Conceptual object, not wall-mountable.
+    - id: A141
+      title: Marilyn Diptych
+      artist: Andy Warhol
+      year: 1962
+      period: Contemporary
+      medium: painting
+      width_ft: 9.5
+      height_ft: 6.7
+      orientation: landscape
+      image_url: /uploads/1776193768921-marilyndiptych.jpg
+      source_url: https://www.tate.org.uk/
+      primary_theme: identity
+      theme_tags:
+        - identity
+        - conceptual
+        - portrait
+      visual_intensity: 0.86
+      focal_weight: 0.9
+      palette_tags:
+        - vivid
+        - multicolor
+      mood_tags:
+        - playful
+        - critical
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Strong horizontal pop anchor.
+    - id: A142
+      title: Les Demoiselles d'Avignon
+      artist: Pablo Picasso
+      year: 1907
+      period: Modernism
+      medium: painting
+      width_ft: 8
+      height_ft: 8
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Les_Demoiselles_d%27Avignon_%287925004644%29.jpg
+      source_url: https://www.moma.org/
+      primary_theme: abstract_figure
+      theme_tags:
+        - abstract_figure
+        - figure
+        - abstraction
+      visual_intensity: 0.9
+      focal_weight: 0.94
+      palette_tags:
+        - earth
+        - blue
+        - warm
+      mood_tags:
+        - intense
+        - expressive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: High-pressure anchor for scoring and placement.
+    - id: A143
+      title: Three Musicians
+      artist: Pablo Picasso
+      year: 1921
+      period: Modernism
+      medium: painting
+      width_ft: 7.3
+      height_ft: 6.6
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Picasso_Three_Musicians_MoMA_2024.jpg
+      source_url: https://www.moma.org/
+      primary_theme: abstraction
+      theme_tags:
+        - abstraction
+        - figure
+      visual_intensity: 0.84
+      focal_weight: 0.87
+      palette_tags:
+        - vivid
+        - multicolor
+      mood_tags:
+        - playful
+        - expressive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Useful for colorful modern clusters.
+    - id: A144
+      title: Woman with a Hat
+      artist: Henri Matisse
+      year: 1905
+      period: Modernism
+      medium: painting
+      width_ft: 2.6
+      height_ft: 3.3
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Matisse-Woman-with-a-Hat.jpg
+      source_url: https://www.sfmoma.org/
+      primary_theme: portrait
+      theme_tags:
+        - portrait
+        - figure
+      visual_intensity: 0.83
+      focal_weight: 0.8
+      palette_tags:
+        - vivid
+        - multicolor
+      mood_tags:
+        - expressive
+        - playful
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Medium portrait with high chromatic pull.
+    - id: A145
+      title: The Red Studio
+      artist: Henri Matisse
+      year: 1911
+      period: Modernism
+      medium: painting
+      width_ft: 6
+      height_ft: 5.5
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Atelier_rouge_matisse_1.jpg
+      source_url: https://www.moma.org/
+      primary_theme: abstraction
+      theme_tags:
+        - abstraction
+        - architecture
+      visual_intensity: 0.88
+      focal_weight: 0.86
+      palette_tags:
+        - red
+        - warm
+      mood_tags:
+        - immersive
+        - expressive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Treated as abstraction/architecture hybrid for placement.
+    - id: A146
+      title: Dance
+      artist: Henri Matisse
+      year: 1910
+      period: Modernism
+      medium: painting
+      width_ft: 12.8
+      height_ft: 8.5
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Matissedance.jpg
+      source_url: https://www.hermitagemuseum.org/
+      primary_theme: figure
+      theme_tags:
+        - figure
+        - abstraction
+      visual_intensity: 0.86
+      focal_weight: 0.9
+      palette_tags:
+        - blue
+        - green
+        - red
+      mood_tags:
+        - playful
+        - expressive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Broad horizontal anchor with strong motion.
+    - id: A147
+      title: White on White
+      artist: Kazimir Malevich
+      year: 1918
+      period: Avant-Garde
+      medium: painting
+      width_ft: 2.6
+      height_ft: 2.6
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/White_on_White_%28Malevich%2C_1918%29.png
+      source_url: https://www.moma.org/
+      primary_theme: abstraction
+      theme_tags:
+        - abstraction
+        - conceptual
+      visual_intensity: 0.34
+      focal_weight: 0.62
+      palette_tags:
+        - light
+        - neutral
+      mood_tags:
+        - quiet
+        - conceptual
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Low-intensity minimalist counterpoint.
+    - id: A148
+      title: Vir Heroicus Sublimis
+      artist: Barnett Newman
+      year: 1951
+      period: Contemporary
+      medium: painting
+      width_ft: 17.8
+      height_ft: 8
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Vir_Heroicus_Sublimis_%2825114048493%29.jpg
+      source_url: https://www.moma.org/
+      primary_theme: abstraction
+      theme_tags:
+        - abstraction
+      visual_intensity: 0.78
+      focal_weight: 0.92
+      palette_tags:
+        - red
+        - warm
+      mood_tags:
+        - immersive
+        - meditative
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Long-format anchor for wide walls.
+    - id: A149
+      title: The Two Fridas
+      artist: Frida Kahlo
+      year: 1939
+      period: Modernism
+      medium: painting
+      width_ft: 5.7
+      height_ft: 5.7
+      orientation: landscape
+      image_url: /uploads/1776193802343-the-two-fridas.jpg
+      source_url: https://www.museodearte.moderno.gob.mx/
+      primary_theme: identity
+      theme_tags:
+        - identity
+        - portrait
+        - figure
+      visual_intensity: 0.82
+      focal_weight: 0.9
+      palette_tags:
+        - warm
+        - green
+        - red
+      mood_tags:
+        - reflective
+        - expressive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: High-value identity-focused anchor.
+    - id: A150
+      title: The Treachery of Images
+      artist: René Magritte
+      year: 1929
+      period: Modernism
+      medium: painting
+      width_ft: 2.7
+      height_ft: 2
+      orientation: landscape
+      image_url: https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg
+      source_url: https://www.lacma.org/
+      primary_theme: conceptual
+      theme_tags:
+        - conceptual
+        - social_commentary
+      visual_intensity: 0.45
+      focal_weight: 0.75
+      palette_tags:
+        - earth
+        - neutral
+      mood_tags:
+        - conceptual
+        - critical
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Small but semantically strong.
+    - id: A151
+      title: The Lovers
+      artist: René Magritte
+      year: 1928
+      period: Modernism
+      medium: painting
+      width_ft: 2.4
+      height_ft: 1.8
+      orientation: landscape
+      image_url: /uploads/1776193848177-the-lovers-painting-300x223.jpg
+      source_url: https://www.moma.org/
+      primary_theme: identity
+      theme_tags:
+        - identity
+        - figure
+        - conceptual
+      visual_intensity: 0.68
+      focal_weight: 0.8
+      palette_tags:
+        - muted
+        - dark
+      mood_tags:
+        - unsettling
+        - reflective
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Compact conceptual figurative work.
+    - id: A152
+      title: A Bar at the Folies-Bergère
+      artist: Édouard Manet
+      year: 1882
+      period: Modernism
+      medium: painting
+      width_ft: 4.3
+      height_ft: 3.2
+      orientation: landscape
+      image_url: >-
+        https://commons.wikimedia.org/wiki/Special:FilePath/%22Un_Bar_aux_Folies-Berg%C3%A8re%22_by_%C3%89douard_Manet_%281882%29.jpg
+      source_url: https://courtauld.ac.uk/
+      primary_theme: portrait
+      theme_tags:
+        - portrait
+        - cityscape
+        - social_commentary
+      visual_intensity: 0.74
+      focal_weight: 0.84
+      palette_tags:
+        - warm
+        - dark
+        - gold
+      mood_tags:
+        - reflective
+        - urban
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Urban portrait/interior hybrid.
+    - id: A153
+      title: Black Iris
+      artist: Georgia O'Keeffe
+      year: 1926
+      period: Modernism
+      medium: painting
+      width_ft: 3
+      height_ft: 2.5
+      orientation: portrait
+      image_url: /uploads/1776193886822-georgia-o-keeffe-black-iris-1926-metropolitan-museum-of-art.jpg
+      source_url: https://www.metmuseum.org/
+      primary_theme: nature_study
+      theme_tags:
+        - nature_study
+        - abstraction
+      visual_intensity: 0.78
+      focal_weight: 0.82
+      palette_tags:
+        - dark
+        - muted
+        - green
+      mood_tags:
+        - meditative
+        - immersive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Verified replacement for the earlier Black Iris entry.
+    - id: A154
+      title: 'Cow''s Skull: Red, White, and Blue'
+      artist: Georgia O'Keeffe
+      year: 1931
+      period: Modernism
+      medium: painting
+      width_ft: 3.3
+      height_ft: 3
+      orientation: portrait
+      image_url: /uploads/1776193920624-cows-skull-red-white-and-blue.jpg
+      source_url: https://www.metmuseum.org/
+      primary_theme: nature_study
+      theme_tags:
+        - nature_study
+        - abstraction
+      visual_intensity: 0.76
+      focal_weight: 0.84
+      palette_tags:
+        - red
+        - blue
+        - light
+      mood_tags:
+        - dramatic
+        - reflective
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Title quoted to keep YAML valid.
+    - id: A155
+      title: The Tetons and the Snake River
+      artist: Ansel Adams
+      year: 1942
+      period: Contemporary Photography
+      medium: photography
+      width_ft: 2.6
+      height_ft: 1.8
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Adams_The_Tetons_and_the_Snake_River.jpg
+      source_url: https://www.nga.gov/
+      primary_theme: landscape
+      theme_tags:
+        - landscape
+        - photography
+        - nature_study
+      visual_intensity: 0.66
+      focal_weight: 0.8
+      palette_tags:
+        - black_and_white
+        - grayscale
+      mood_tags:
+        - meditative
+        - dramatic
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Broad tonal landscape photograph.
+    - id: A156
+      title: Child with Toy Hand Grenade in Central Park
+      artist: Diane Arbus
+      year: 1962
+      period: Contemporary Photography
+      medium: photography
+      width_ft: 1.8
+      height_ft: 2.4
+      orientation: portrait
+      image_url: /uploads/1776193962234-childwithhandgrenadedianearbus.jpg
+      source_url: https://www.metmuseum.org/
+      primary_theme: portrait
+      theme_tags:
+        - portrait
+        - photography
+        - social_commentary
+      visual_intensity: 0.76
+      focal_weight: 0.84
+      palette_tags:
+        - black_and_white
+        - grayscale
+      mood_tags:
+        - unsettling
+        - documentary
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Small photographic portrait with strong conceptual charge.
+    - id: A157
+      title: Behind the Gare Saint-Lazare
+      artist: Henri Cartier-Bresson
+      year: 1932
+      period: Contemporary Photography
+      medium: photography
+      width_ft: 1.8
+      height_ft: 1.8
+      orientation: portrait
+      image_url: /uploads/1776194004408-henri-cartier-bresson-behind-the-gare-saint-lazare-1932.jpg
+      source_url: https://www.moma.org/
+      primary_theme: street_scene
+      theme_tags:
+        - street_scene
+        - photography
+        - documentary
+      visual_intensity: 0.68
+      focal_weight: 0.82
+      palette_tags:
+        - black_and_white
+        - grayscale
+      mood_tags:
+        - documentary
+        - urban
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Compact iconic street photograph.
+    - id: A158
+      title: The Great Wave off Kanagawa
+      artist: Katsushika Hokusai
+      year: 1831
+      period: Modernism
+      medium: drawing
+      width_ft: 1.24
+      height_ft: 0.84
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/The_Great_Wave_off_Kanagawa.jpg
+      source_url: https://www.metmuseum.org/
+      primary_theme: landscape
+      theme_tags:
+        - landscape
+        - nature_study
+      visual_intensity: 0.8
+      focal_weight: 0.9
+      palette_tags:
+        - blue
+        - vivid
+      mood_tags:
+        - dramatic
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Verified classic print with stable Commons file path.
+    - id: A159
+      title: Nighthawks
+      artist: Edward Hopper
+      year: 1942
+      period: Modernism
+      medium: painting
+      width_ft: 5
+      height_ft: 2.5
+      orientation: landscape
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Nighthawks_by_Edward_Hopper_1942.jpg
+      source_url: https://www.artic.edu/
+      primary_theme: cityscape
+      theme_tags:
+        - cityscape
+        - social_commentary
+      visual_intensity: 0.75
+      focal_weight: 0.9
+      palette_tags:
+        - dark
+        - green
+      mood_tags:
+        - quiet
+        - urban
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Urban horizontal anchor.
+    - id: A160
+      title: American Gothic
+      artist: Grant Wood
+      year: 1930
+      period: Modernism
+      medium: painting
+      width_ft: 2.6
+      height_ft: 3.1
+      orientation: portrait
+      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg
+      source_url: https://www.artic.edu/
+      primary_theme: portrait
+      theme_tags:
+        - portrait
+        - social_commentary
+      visual_intensity: 0.6
+      focal_weight: 0.85
+      palette_tags:
+        - earth
+        - muted
+      mood_tags:
+        - formal
+        - reflective
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: Stable portrait-format canonical work.
+
+    - id: A311
+      title: The Starry Night
+      artist: Vincent van Gogh
+      year: 1889
+      period: Post-Impressionism
+      medium: painting
+      width_ft: 3
+      height_ft: 2.4
+      orientation: landscape
+      image_url: https://en.wikipedia.org/wiki/The_Starry_Night#/media/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg
+      source_url: https://en.wikipedia.org/wiki/The_Starry_Night
+
+    - id: A312
+      title: Mona Lisa
+      artist: Leonardo da Vinci
+      year: 1503
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 2.5
+      height_ft: 3.5
+      orientation: portrait
+      image_url: https://en.wikipedia.org/wiki/Mona_Lisa#/media/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg
+      source_url: https://en.wikipedia.org/wiki/Mona_Lisa
+
+    - id: A313
+      title: The Persistence of Memory
+      artist: Salvador Dalí
+      year: 1931
+      period: Modernism
+      medium: painting
+      width_ft: 2
+      height_ft: 1.5
+      orientation: landscape
+      image_url: https://en.wikipedia.org/wiki/The_Persistence_of_Memory#/media/File:The_Persistence_of_Memory.jpg
+      source_url: https://en.wikipedia.org/wiki/The_Persistence_of_Memory
+
+    - id: A314
+      title: The Scream
+      artist: Edvard Munch
+      year: 1893
+      period: Expressionism
+      medium: painting
+      width_ft: 3
+      height_ft: 4
+      orientation: portrait
+      image_url: https://en.wikipedia.org/wiki/The_Scream#/media/File:The_Scream.jpg
+      source_url: https://en.wikipedia.org/wiki/The_Scream
+
+    - id: A315
+      title: Girl with a Pearl Earring
+      artist: Johannes Vermeer
+      year: 1665
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 1.5
+      height_ft: 2
+      orientation: portrait
+      image_url: https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring#/media/File:Meisje_met_de_parel.jpg
+      source_url: https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring
+
+    - id: A316
+      title: American Gothic
+      artist: Grant Wood
+      year: 1930
+      period: Modernism
+      medium: painting
+      width_ft: 2.6
+      height_ft: 3.1
+      orientation: portrait
+      image_url: https://en.wikipedia.org/wiki/American_Gothic#/media/File:Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg
+      source_url: https://en.wikipedia.org/wiki/American_Gothic
+
+    - id: A317
+      title: Nighthawks
+      artist: Edward Hopper
+      year: 1942
+      period: Modernism
+      medium: painting
+      width_ft: 5
+      height_ft: 2.5
+      orientation: landscape
+      image_url: https://en.wikipedia.org/wiki/Nighthawks#/media/File:Nighthawks_by_Edward_Hopper_1942.jpg
+      source_url: https://en.wikipedia.org/wiki/Nighthawks
+
+    - id: A318
+      title: The Night Watch
+      artist: Rembrandt
+      year: 1642
+      period: Northern Renaissance
+      medium: painting
+      width_ft: 12
+      height_ft: 14
+      orientation: portrait
+      image_url: https://en.wikipedia.org/wiki/The_Night_Watch#/media/File:The_Nightwatch_by_Rembrandt.jpg
+      source_url: https://en.wikipedia.org/wiki/The_Night_Watch
+
+    - id: A319
+      title: Liberty Leading the People
+      artist: Eugène Delacroix
+      year: 1830
+      period: Modernism
+      medium: painting
+      width_ft: 10
+      height_ft: 8
+      orientation: landscape
+      image_url: https://en.wikipedia.org/wiki/Liberty_Leading_the_People#/media/File:La_Libert%C3%A9_guidant_le_peuple.jpg
+      source_url: https://en.wikipedia.org/wiki/Liberty_Leading_the_People
+
+    - id: A320
+      title: The Great Wave off Kanagawa
+      artist: Katsushika Hokusai
+      year: 1831
+      period: Modernism
+      medium: drawing
+      width_ft: 1.2
+      height_ft: 0.8
+      orientation: landscape
+      image_url: https://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa#/media/File:The_Great_Wave_off_Kanagawa.jpg
+      source_url: https://en.wikipedia.org/wiki/The_Great_Wave_off_Kanagawa
+
