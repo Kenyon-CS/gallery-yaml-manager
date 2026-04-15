@@ -1,3 +1,4 @@
+// client/src/components/WallStage.jsx
 import { useState } from 'react';
 
 function numberOr(value, fallback = 0) {
@@ -101,7 +102,7 @@ export default function WallStage({
                 position: 'relative',
                 border: '2px solid #333',
                 background: '#f7f3eb',
-                overflow: 'hidden',
+                overflow: 'visible',
                 cursor
             }}
         >
@@ -217,38 +218,50 @@ export default function WallStage({
                             height: `${Math.max(clippedHeightPx, 18)}px`,
                             border: warning ? '3px solid #dc2626' : '2px solid #222',
                             background: '#fff',
-                            overflow: 'hidden',
+                            overflow: 'visible',
                             boxShadow: '0 2px 6px rgba(0,0,0,0.15)'
                         }}
                     >
-                        {artwork.image_url ? (
-                            <img
-                                src={artwork.image_url}
-                                alt={artwork.title}
-                                style={{
-                                    position: 'absolute',
-                                    left: `${-offsetX}px`,
-                                    top: `${-offsetY}px`,
-                                    width: `${rawWidthPx}px`,
-                                    height: `${rawHeightPx}px`,
-                                    objectFit: 'cover'
-                                }}
-                            />
-                        ) : (
-                            <div
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    background: '#ddd',
-                                    fontSize: '0.8rem'
-                                }}
-                            >
-                                {artwork.id}
-                            </div>
-                        )}
+                        <div
+                            style={{
+                                position: 'absolute',
+                                left: 0,
+                                top: 0,
+                                width: '100%',
+                                height: '100%',
+                                overflow: 'hidden'
+                            }}
+                        >
+                            {artwork.image_url ? (
+                                <img
+                                    src={artwork.image_url}
+                                    alt={artwork.title}
+                                    style={{
+                                        position: 'absolute',
+                                        left: `${-offsetX}px`,
+                                        top: `${-offsetY}px`,
+                                        width: `${rawWidthPx}px`,
+                                        height: `${rawHeightPx}px`,
+                                        objectFit: 'cover',
+                                        display: 'block'
+                                    }}
+                                />
+                            ) : (
+                                <div
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        background: '#ddd',
+                                        fontSize: '0.8rem'
+                                    }}
+                                >
+                                    {artwork.id}
+                                </div>
+                            )}
+                        </div>
 
                         {hoveredArtworkId === placement.artwork_id && (
                             <div
@@ -264,7 +277,9 @@ export default function WallStage({
                                     boxShadow: '0 6px 18px rgba(0,0,0,0.18)',
                                     padding: '0.6rem 0.75rem',
                                     zIndex: 40,
-                                    fontSize: '0.85rem'
+                                    fontSize: '0.85rem',
+                                    lineHeight: 1.35,
+                                    color: '#111'
                                 }}
                             >
                                 <strong>{artwork.title}</strong>

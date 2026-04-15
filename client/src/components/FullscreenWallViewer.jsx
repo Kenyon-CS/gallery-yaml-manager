@@ -1,3 +1,4 @@
+// client/src/components/FullscreenWallViewer.jsx
 import { useEffect, useRef, useState } from 'react';
 import WallStage from './WallStage.jsx';
 

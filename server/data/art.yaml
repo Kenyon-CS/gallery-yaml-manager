@@ -939,7 +939,7 @@ art:
       width_ft: 3
       height_ft: 2.5
       orientation: landscape
-      image_url: https://commons.wikimedia.org/wiki/Special:FilePath/The_Starry_Night.jpg
+      image_url: /uploads/1776216532331-image-4-14-26-at-9-27-pm.jpeg
       source_url: https://www.moma.org/
       primary_theme: landscape
       theme_tags:
@@ -953,6 +953,13 @@ art:
       mood_tags:
         - expressive
         - immersive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''
     - id: A111
       title: American Gothic
       artist: Grant Wood
