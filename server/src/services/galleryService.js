@@ -25,9 +25,9 @@ function loadArray(value, fallback = []) {
   return Array.isArray(value) ? value : fallback;
 }
 
-async function loadGalleryData() {
-  const filename = await getActiveFile('gallery');
-  const filePath = resolveDataFilePath(filename);
+async function loadGalleryData(user) {
+  const filename = await getActiveFile(user, 'gallery');
+  const filePath = resolveDataFilePath(user, filename);
   console.log('[GALLERY FILE]', filename);
 
   const data = await readYamlFile(filePath);
@@ -47,9 +47,9 @@ async function loadGalleryData() {
   return data;
 }
 
-async function saveGalleryData(data) {
-  const filename = await getActiveFile('gallery');
-  const filePath = resolveDataFilePath(filename);
+async function saveGalleryData(user, data) {
+  const filename = await getActiveFile(user, 'gallery');
+  const filePath = resolveDataFilePath(user, filename);
 
   await writeYamlFile(filePath, data);
 }
@@ -193,34 +193,34 @@ function normalizeWindowPayload(data, payload, existing = null) {
   };
 }
 
-export async function getGallery() {
-  const data = await loadGalleryData();
+export async function getGallery(user) {
+  const data = await loadGalleryData(user);
   return data.gallery;
 }
 
-export async function getRooms() {
-  const data = await loadGalleryData();
+export async function getRooms(user) {
+  const data = await loadGalleryData(user);
   return data.gallery.rooms;
 }
 
-export async function getRoomById(id) {
-  const data = await loadGalleryData();
+export async function getRoomById(user,id) {
+  const data = await loadGalleryData(user);
   return findRoom(data, id);
 }
 
-export async function createRoom(payload) {
-  const data = await loadGalleryData();
+export async function createRoom(user, payload) {
+  const data = await loadGalleryData(user);
   const room = normalizeRoomPayload(payload);
 
   ensureUniqueId(data.gallery.rooms, room.id, 'Room');
   data.gallery.rooms.push(room);
 
-  await saveGalleryData(data);
+  await saveGalleryData(user, data);
   return room;
 }
 
-export async function updateRoom(id, payload) {
-  const data = await loadGalleryData();
+export async function updateRoom(user,id, payload) {
+  const data = await loadGalleryData(user);
   const idx = data.gallery.rooms.findIndex((room) => room.id === id);
 
   if (idx === -1) {
@@ -233,28 +233,28 @@ export async function updateRoom(id, payload) {
   ensureUniqueId(data.gallery.rooms, updated.id, 'Room', id);
   data.gallery.rooms[idx] = updated;
 
-  await saveGalleryData(data);
+  await saveGalleryData(user, data);
   return updated;
 }
 
-export async function getDoors() {
-  const data = await loadGalleryData();
+export async function getDoors(user) {
+  const data = await loadGalleryData(user);
   return data.gallery.doors;
 }
 
-export async function createDoor(payload) {
-  const data = await loadGalleryData();
+export async function createDoor(user, payload) {
+  const data = await loadGalleryData(user);
   const door = normalizeDoorPayload(data, payload);
 
   ensureUniqueId(data.gallery.doors, door.id, 'Door');
   data.gallery.doors.push(door);
 
-  await saveGalleryData(data);
+  await saveGalleryData(user, data);
   return door;
 }
 
-export async function updateDoor(id, payload) {
-  const data = await loadGalleryData();
+export async function updateDoor(user, id, payload) {
+  const data = await loadGalleryData(user);
   const idx = data.gallery.doors.findIndex((door) => door.id === id);
 
   if (idx === -1) {
@@ -267,12 +267,12 @@ export async function updateDoor(id, payload) {
   ensureUniqueId(data.gallery.doors, updated.id, 'Door', id);
   data.gallery.doors[idx] = updated;
 
-  await saveGalleryData(data);
+  await saveGalleryData(user, data);
   return updated;
 }
 
-export async function deleteDoor(id) {
-  const data = await loadGalleryData();
+export async function deleteDoor(user, id) {
+  const data = await loadGalleryData(user);
   const before = data.gallery.doors.length;
   data.gallery.doors = data.gallery.doors.filter((door) => door.id !== id);
 
@@ -280,28 +280,28 @@ export async function deleteDoor(id) {
     throw new Error(`Door "${id}" not found`);
   }
 
-  await saveGalleryData(data);
+  await saveGalleryData(user, data);
   return { success: true };
 }
 
-export async function getWindows() {
-  const data = await loadGalleryData();
+export async function getWindows(user) {
+  const data = await loadGalleryData(user);
   return data.gallery.windows;
 }
 
-export async function createWindow(payload) {
-  const data = await loadGalleryData();
+export async function createWindow(user,payload) {
+  const data = await loadGalleryData(user);
   const win = normalizeWindowPayload(data, payload);
 
   ensureUniqueId(data.gallery.windows, win.id, 'Window');
   data.gallery.windows.push(win);
 
-  await saveGalleryData(data);
+  await saveGalleryData(user, data);
   return win;
 }
 
-export async function updateWindow(id, payload) {
-  const data = await loadGalleryData();
+export async function updateWindow(user,id, payload) {
+  const data = await loadGalleryData(user);
   const idx = data.gallery.windows.findIndex((win) => win.id === id);
 
   if (idx === -1) {
@@ -314,19 +314,20 @@ export async function updateWindow(id, payload) {
   ensureUniqueId(data.gallery.windows, updated.id, 'Window', id);
   data.gallery.windows[idx] = updated;
 
-  await saveGalleryData(data);
+  await saveGalleryData(user, data);
   return updated;
 }
 
-export async function deleteWindow(id) {
-  const data = await loadGalleryData();
+export async function deleteWindow(user, id) {
+  const data = await loadGalleryData(user);
   const before = data.gallery.windows.length;
+
   data.gallery.windows = data.gallery.windows.filter((win) => win.id !== id);
 
   if (data.gallery.windows.length === before) {
     throw new Error(`Window "${id}" not found`);
   }
 
-  await saveGalleryData(data);
+  await saveGalleryData(user, data);
   return { success: true };
 }

@@ -1,3 +1,4 @@
+// client/src/pages/ArtworkListPage.jsx
 import { useEffect, useState } from 'react';
 import { fetchArtworks, fetchVocabularies } from '../api.js';
 import ArtworkCard from '../components/ArtworkCard.jsx';

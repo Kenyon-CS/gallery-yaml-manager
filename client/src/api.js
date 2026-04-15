@@ -1,3 +1,14 @@
+function getCurrentUser() {
+  return localStorage.getItem('user') || '';
+}
+
+function withUser(url) {
+  const user = getCurrentUser();
+  if (!user) return url;
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}user=${encodeURIComponent(user)}`;
+}
+
 async function parseResponse(response) {
   const data = await response.json();
   if (!response.ok) {
@@ -15,22 +26,22 @@ export async function fetchArtworks(filters = {}) {
   });
 
   const query = params.toString();
-  const response = await fetch(`/api/art${query ? `?${query}` : ''}`);
+  const response = await fetch(withUser(`/api/art${query ? `?${query}` : ''}`));
   return parseResponse(response);
 }
 
 export async function fetchArtwork(id) {
-  const response = await fetch(`/api/art/${id}`);
+  const response = await fetch(withUser(`/api/art/${id}`));
   return parseResponse(response);
 }
 
 export async function fetchVocabularies() {
-  const response = await fetch('/api/art/vocabularies');
+  const response = await fetch(withUser('/api/art/vocabularies'));
   return parseResponse(response);
 }
 
 export async function createArtwork(payload) {
-  const response = await fetch('/api/art', {
+  const response = await fetch(withUser('/api/art'), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
@@ -39,7 +50,7 @@ export async function createArtwork(payload) {
 }
 
 export async function updateArtwork(id, payload) {
-  const response = await fetch(`/api/art/${id}`, {
+  const response = await fetch(withUser(`/api/art/${id}`), {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
@@ -48,7 +59,7 @@ export async function updateArtwork(id, payload) {
 }
 
 export async function deleteArtwork(id) {
-  const response = await fetch(`/api/art/${id}`, {
+  const response = await fetch(withUser(`/api/art/${id}`), {
     method: 'DELETE'
   });
   return parseResponse(response);
@@ -67,31 +78,31 @@ export async function uploadImage(file) {
 }
 
 export async function fetchAllData() {
-  const response = await fetch('/api/data/all');
+  const response = await fetch(withUser('/api/data/all'));
   return parseResponse(response);
 }
 
 export async function fetchResolvedArrangement(id) {
-  const response = await fetch(`/api/data/resolved-arrangements/${id}`);
+  const response = await fetch(withUser(`/api/data/resolved-arrangements/${id}`));
   return parseResponse(response);
 }
 
 export async function fetchGallery() {
-  const response = await fetch('/api/gallery');
+  const response = await fetch(withUser('/api/gallery'));
   return parseResponse(response);
 }
 
 export async function fetchGalleryRooms() {
-  const response = await fetch('/api/gallery/rooms');
+  const response = await fetch(withUser('/api/gallery/rooms'));
   return parseResponse(response);
 }
 
 export async function fetchGalleryDoors() {
-  const response = await fetch('/api/gallery/doors');
+  const response = await fetch(withUser('/api/gallery/doors'));
   return parseResponse(response);
 }
 
 export async function fetchGalleryWindows() {
-  const response = await fetch('/api/gallery/windows');
+  const response = await fetch(withUser('/api/gallery/windows'));
   return parseResponse(response);
 }

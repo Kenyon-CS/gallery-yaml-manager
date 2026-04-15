@@ -2341,3 +2341,34 @@ art:
         x_ft: null
         y_ft: null
       notes: Stable portrait-format canonical work.
+    - id: GoghSelf
+      title: Self-Portrait
+      artist: Vincent van Gogh
+      year: 1889
+      period: Post-Impressionism
+      medium: painting
+      width_ft: 2.2
+      height_ft: 1.7
+      orientation: portrait
+      image_url: /uploads/1776210990262-vincent-van-gogh-self-portrait-google-art-project.jpg
+      source_url: ''
+      primary_theme: self_portrait
+      theme_tags:
+        - self_portrait
+      visual_intensity: 0.5
+      focal_weight: 0.5
+      palette_tags:
+        - green
+        - brown
+        - blue
+      mood_tags:
+        - reflective
+        - intense
+        - expressive
+      eligible: true
+      required: false
+      locked: false
+      locked_position:
+        x_ft: null
+        y_ft: null
+      notes: ''

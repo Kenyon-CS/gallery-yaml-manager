@@ -5,6 +5,13 @@ function deepClone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+function withUser(url) {
+  const user = localStorage.getItem('user') || '';
+  if (!user) return url;
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}user=${encodeURIComponent(user)}`;
+}
+
 function isPlainObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
@@ -181,9 +188,9 @@ function ObjectEditor({ label, value, originalValue, path, onChange, nested = fa
   const wrapperStyle = nested
     ? {}
     : {
-        display: 'grid',
-        gap: '1rem'
-      };
+      display: 'grid',
+      gap: '1rem'
+    };
 
   return (
     <section className="form-section" style={nested ? { margin: 0, padding: 0, border: 'none' } : undefined}>
@@ -267,7 +274,7 @@ export default function ScoringSettingsPage() {
       setMessage('');
 
       try {
-        const response = await fetch('/api/scoring-settings');
+        const response = await fetch(withUser('/api/scoring-settings'));
         if (!response.ok) {
           throw new Error(`Failed to load scoring settings (${response.status})`);
         }
@@ -320,7 +327,7 @@ export default function ScoringSettingsPage() {
     setMessage('');
 
     try {
-      const response = await fetch('/api/scoring-settings', {
+      const response = await fetch(withUser('/api/scoring-settings'), {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editedData)

@@ -1,3 +1,4 @@
+// client/src/pages/ProjectManagerPage.jsx
 import { useEffect, useState } from 'react';
 
 function emptyForm() {
@@ -8,6 +9,14 @@ function emptyForm() {
     newFileName: ''
   };
 }
+
+function withUser(url) {
+  const user = localStorage.getItem('user') || '';
+  if (!user) return url;
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}user=${encodeURIComponent(user)}`;
+}
+
 
 export default function ProjectManagerPage() {
   const [projects, setProjects] = useState([]);
@@ -26,8 +35,8 @@ export default function ProjectManagerPage() {
 
     try {
       const [projectsRes, currentRes] = await Promise.all([
-        fetch('/api/projects'),
-        fetch('/api/projects/current')
+        fetch(withUser('/api/projects')),
+        fetch(withUser('/api/projects/current'))
       ]);
 
       const projectsJson = await projectsRes.json();
@@ -61,7 +70,7 @@ export default function ProjectManagerPage() {
     setMessage('');
 
     try {
-      const res = await fetch('/api/projects/current', {
+      const res = await fetch(withUser('/api/projects/current'), {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ filename })
@@ -89,7 +98,7 @@ export default function ProjectManagerPage() {
     setMessage('');
 
     try {
-      const res = await fetch('/api/projects', {
+      const res = await fetch(withUser('/api/projects'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -128,7 +137,7 @@ export default function ProjectManagerPage() {
     setMessage('');
 
     try {
-      const res = await fetch(`/api/projects/${encodeURIComponent(currentFilename)}/active`, {
+      const res = await fetch(withUser(`/api/projects/${encodeURIComponent(currentFilename)}/active`), {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ [type]: filename })
@@ -158,8 +167,7 @@ export default function ProjectManagerPage() {
     setMessage('');
 
     try {
-      const res = await fetch(`/api/projects/${encodeURIComponent(currentFilename)}/files`, {
-        method: 'POST',
+const res = await fetch(withUser(`/api/projects/${encodeURIComponent(currentFilename)}/files`), {        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           type: form.newFileType,

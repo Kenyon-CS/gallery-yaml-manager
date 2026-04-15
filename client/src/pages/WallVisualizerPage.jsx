@@ -6,6 +6,13 @@ import FullscreenWallViewer from '../components/FullscreenWallViewer.jsx';
 const MAX_WALL_WIDTH_PX = 920;
 const MAX_WALL_HEIGHT_PX = 520;
 
+function withUser(url) {
+    const user = localStorage.getItem('user') || '';
+    if (!user) return url;
+    const separator = url.includes('?') ? '&' : '?';
+    return `${url}${separator}user=${encodeURIComponent(user)}`;
+}
+
 function numberOr(value, fallback = 0) {
     const n = Number(value);
     return Number.isFinite(n) ? n : fallback;
@@ -356,9 +363,9 @@ export default function WallVisualizerPage() {
 
             try {
                 const [galleryRes, showRes, artRes] = await Promise.all([
-                    fetch('/api/gallery'),
-                    fetch('/api/show'),
-                    fetch('/api/art')
+                    fetch(withUser('/api/gallery')),
+                    fetch(withUser('/api/show')),
+                    fetch(withUser('/api/art'))
                 ]);
 
                 if (!galleryRes.ok) throw new Error(`Failed to load gallery (${galleryRes.status})`);

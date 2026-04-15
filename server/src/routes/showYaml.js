@@ -4,9 +4,10 @@ import { loadShowData } from '../services/yamlService.js';
 
 const router = express.Router();
 
-router.get('/', async (_req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const data = await loadShowData();
+    const user = req.query.user;
+    const data = await loadShowData(user);
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });

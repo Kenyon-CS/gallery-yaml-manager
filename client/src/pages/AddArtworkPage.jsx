@@ -1,3 +1,4 @@
+// client/src/pages/AddArtworkPage.jsx
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createArtwork, fetchVocabularies } from '../api.js';

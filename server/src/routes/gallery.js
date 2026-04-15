@@ -1,4 +1,3 @@
-// server/src/routes/gallery.js
 import express from 'express';
 import {
   getGallery,
@@ -18,18 +17,20 @@ import {
 
 const router = express.Router();
 
-router.get('/', async (_req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const gallery = await getGallery();
+    const user = req.query.user;
+    const gallery = await getGallery(user);
     res.json(gallery);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-router.get('/rooms', async (_req, res) => {
+router.get('/rooms', async (req, res) => {
   try {
-    const rooms = await getRooms();
+    const user = req.query.user;
+    const rooms = await getRooms(user);
     res.json({ rooms });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -38,7 +39,8 @@ router.get('/rooms', async (_req, res) => {
 
 router.get('/rooms/:id', async (req, res) => {
   try {
-    const room = await getRoomById(req.params.id);
+    const user = req.query.user;
+    const room = await getRoomById(user, req.params.id);
     if (!room) {
       return res.status(404).json({ error: 'Room not found' });
     }
@@ -50,7 +52,8 @@ router.get('/rooms/:id', async (req, res) => {
 
 router.post('/rooms', async (req, res) => {
   try {
-    const room = await createRoom(req.body);
+    const user = req.query.user;
+    const room = await createRoom(user, req.body);
     res.status(201).json(room);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -59,7 +62,8 @@ router.post('/rooms', async (req, res) => {
 
 router.put('/rooms/:id', async (req, res) => {
   try {
-    const room = await updateRoom(req.params.id, req.body);
+    const user = req.query.user;
+    const room = await updateRoom(user, req.params.id, req.body);
     res.json(room);
   } catch (error) {
     const status = error.message.includes('not found') ? 404 : 400;
@@ -67,9 +71,10 @@ router.put('/rooms/:id', async (req, res) => {
   }
 });
 
-router.get('/doors', async (_req, res) => {
+router.get('/doors', async (req, res) => {
   try {
-    const doors = await getDoors();
+    const user = req.query.user;
+    const doors = await getDoors(user);
     res.json({ doors });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -78,7 +83,8 @@ router.get('/doors', async (_req, res) => {
 
 router.post('/doors', async (req, res) => {
   try {
-    const door = await createDoor(req.body);
+    const user = req.query.user;
+    const door = await createDoor(user, req.body);
     res.status(201).json(door);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -87,7 +93,8 @@ router.post('/doors', async (req, res) => {
 
 router.put('/doors/:id', async (req, res) => {
   try {
-    const door = await updateDoor(req.params.id, req.body);
+    const user = req.query.user;
+    const door = await updateDoor(user, req.params.id, req.body);
     res.json(door);
   } catch (error) {
     const status = error.message.includes('not found') ? 404 : 400;
@@ -97,7 +104,8 @@ router.put('/doors/:id', async (req, res) => {
 
 router.delete('/doors/:id', async (req, res) => {
   try {
-    const result = await deleteDoor(req.params.id);
+    const user = req.query.user;
+    const result = await deleteDoor(user, req.params.id);
     res.json(result);
   } catch (error) {
     const status = error.message.includes('not found') ? 404 : 400;
@@ -105,9 +113,10 @@ router.delete('/doors/:id', async (req, res) => {
   }
 });
 
-router.get('/windows', async (_req, res) => {
+router.get('/windows', async (req, res) => {
   try {
-    const windows = await getWindows();
+    const user = req.query.user;
+    const windows = await getWindows(user);
     res.json({ windows });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -116,7 +125,8 @@ router.get('/windows', async (_req, res) => {
 
 router.post('/windows', async (req, res) => {
   try {
-    const win = await createWindow(req.body);
+    const user = req.query.user;
+    const win = await createWindow(user, req.body);
     res.status(201).json(win);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -125,7 +135,8 @@ router.post('/windows', async (req, res) => {
 
 router.put('/windows/:id', async (req, res) => {
   try {
-    const win = await updateWindow(req.params.id, req.body);
+    const user = req.query.user;
+    const win = await updateWindow(user, req.params.id, req.body);
     res.json(win);
   } catch (error) {
     const status = error.message.includes('not found') ? 404 : 400;
@@ -135,7 +146,8 @@ router.put('/windows/:id', async (req, res) => {
 
 router.delete('/windows/:id', async (req, res) => {
   try {
-    const result = await deleteWindow(req.params.id);
+    const user = req.query.user;
+    const result = await deleteWindow(user, req.params.id);
     res.json(result);
   } catch (error) {
     const status = error.message.includes('not found') ? 404 : 400;

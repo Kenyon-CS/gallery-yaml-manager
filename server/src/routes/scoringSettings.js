@@ -1,11 +1,13 @@
+// server/src/routes/scoringSettings.js  
 import express from 'express';
 import { loadScoringData, saveScoringData } from '../services/scoringYamlService.js';
 
 const router = express.Router();
 
-router.get('/', async (_req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const data = await loadScoringData();
+    const user = req.query.user;
+    const data = await loadScoringData(user);
     res.json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -14,7 +16,8 @@ router.get('/', async (_req, res) => {
 
 router.put('/', async (req, res) => {
   try {
-    const saved = await saveScoringData(req.body);
+    const user = req.query.user;
+    const saved = await saveScoringData(user, req.body);
     res.json(saved);
   } catch (error) {
     res.status(500).json({ error: error.message });
