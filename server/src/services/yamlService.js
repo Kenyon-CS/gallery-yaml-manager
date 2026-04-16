@@ -45,4 +45,5 @@ export async function saveShowData(user, data) {
   });
 
   await fs.writeFile(filePath, dumped, 'utf8');
+  return data;
 }

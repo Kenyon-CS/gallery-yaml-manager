@@ -1,3 +1,4 @@
+// client/src/pages/ArtworkDetailPage.jsx
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchArtwork } from '../api.js';

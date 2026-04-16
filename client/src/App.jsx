@@ -8,6 +8,7 @@ import GalleryPage from './pages/GalleryPage.jsx';
 import ScoringSettingsPage from './pages/ScoringSettingsPage.jsx';
 import WallVisualizerPage from './pages/WallVisualizerPage.jsx';
 import ProjectManagerPage from './pages/ProjectManagerPage.jsx';
+import WallDesignPage from './pages/WallDesignPage.jsx';
 
 function LoginScreen({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -114,6 +115,7 @@ export default function App() {
             <NavLink to="/gallery">Gallery</NavLink>
             <NavLink to="/visualizer">Visualizer</NavLink>
             <NavLink to="/projects">Projects</NavLink>
+            <NavLink to="/wall-design">Wall Design</NavLink>
             <NavLink to="/scoring-settings">Scoring Settings</NavLink>
           </nav>
 
@@ -137,6 +139,8 @@ export default function App() {
           <Route path="/visualizer" element={<WallVisualizerPage />} />
           <Route path="/projects" element={<ProjectManagerPage />} />
           <Route path="/scoring-settings" element={<ScoringSettingsPage />} />
+          <Route path="/wall-design" element={<WallDesignPage />} />
+
         </Routes>
       </main>
     </div>

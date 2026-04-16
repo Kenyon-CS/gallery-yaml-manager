@@ -1,6 +1,7 @@
 // client/src/pages/ScoringSettingsPage.jsx
 import { useEffect, useMemo, useState } from 'react';
 
+
 function deepClone(value) {
   return JSON.parse(JSON.stringify(value));
 }
@@ -264,6 +265,7 @@ export default function ScoringSettingsPage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
+  const [activeScoringFile, setActiveScoringFile] = useState('');
 
   useEffect(() => {
     let ignore = false;
@@ -274,16 +276,26 @@ export default function ScoringSettingsPage() {
       setMessage('');
 
       try {
-        const response = await fetch(withUser('/api/scoring-settings'));
-        if (!response.ok) {
-          throw new Error(`Failed to load scoring settings (${response.status})`);
+        const [scoringResponse, currentProjectResponse] = await Promise.all([
+          fetch(withUser('/api/scoring-settings')),
+          fetch(withUser('/api/projects/current'))
+        ]);
+
+        if (!scoringResponse.ok) {
+          throw new Error(`Failed to load scoring settings (${scoringResponse.status})`);
         }
 
-        const data = await response.json();
+        if (!currentProjectResponse.ok) {
+          throw new Error(`Failed to load current project (${currentProjectResponse.status})`);
+        }
+
+        const data = await scoringResponse.json();
+        const currentProjectData = await currentProjectResponse.json();
 
         if (!ignore) {
           setOriginalData(data);
           setEditedData(deepClone(data));
+          setActiveScoringFile(currentProjectData?.project?.project?.active?.scoring || '');
         }
       } catch (err) {
         if (!ignore) {
@@ -374,6 +386,9 @@ export default function ScoringSettingsPage() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', gap: '1rem' }}>
         <div>
           <h1 style={{ marginBottom: '0.25rem' }}>Scoring Settings</h1>
+          <div style={{ marginBottom: '0.4rem', fontWeight: 600 }}>
+            Active scoring file: {activeScoringFile || 'None selected'}
+          </div>
           <p style={{ marginTop: 0 }}>
             Edit existing scoring values here. Structural changes should still be made in the YAML file.
           </p>

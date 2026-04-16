@@ -18,6 +18,42 @@ async function readCurrentProjectFile(user) {
   }
 }
 
+function extractWallsFromGallery(galleryData) {
+  const walls = [];
+
+  for (const room of galleryData?.gallery?.rooms || []) {
+    for (const wall of room.walls || []) {
+      if (wall?.id) {
+        walls.push(wall.id);
+      }
+    }
+  }
+
+  return walls;
+}
+
+function buildEmptyShowFromGallery(galleryData, id, createdFiles = {}) {
+  const wallIds = extractWallsFromGallery(galleryData);
+
+  return {
+    schema_version: '2.0',
+    show: {
+      id: `show-${id}`,
+      title: `${id} Show`,
+      subtitle: '',
+      gallery_id: createdFiles.gallery || '',
+      scoring_profile_id: createdFiles.scoring || '',
+      curator: '',
+      notes: '',
+      wall_designs: wallIds.map((wallId) => ({
+        wall_id: wallId,
+        candidate_artwork_ids: []
+      })),
+      arrangements: []
+    }
+  };
+}
+
 
 const TYPE_PREFIX = {
   art: 'art-',
@@ -113,7 +149,7 @@ const TYPE_TEMPLATES = {
 };
 
 function getUserDir(user) {
-  if (!user) throw new Error("Missing user");
+  if (!user) throw new Error('Missing user');
   return path.join(DATA_DIR, 'users', user);
 }
 
@@ -163,9 +199,27 @@ function validateProjectShape(data) {
   return data;
 }
 
+function assertValidType(type) {
+  if (!TYPE_PREFIX[type]) {
+    throw new Error('Invalid file type.');
+  }
+}
+
+function safeUploadedFilename(originalname) {
+  const ext = path.extname(originalname || '').toLowerCase();
+  if (ext !== '.yaml' && ext !== '.yml') {
+    throw new Error('Only .yaml or .yml files are allowed.');
+  }
+
+  const base = path.basename(originalname).replace(/\s+/g, '-');
+  if (base.includes('..') || base.includes('/') || base.includes('\\')) {
+    throw new Error('Invalid filename.');
+  }
+
+  return base;
+}
 
 export async function listProjects(user) {
-
   const dir = getUserProjectsDir(user);
   const entries = await fs.readdir(dir);
   const projectFiles = entries.filter((name) => /^project-.*\.ya?ml$/i.test(name)).sort();
@@ -199,7 +253,6 @@ export async function getProjectByFilename(user, filename) {
 }
 
 export async function createProject(user, { name, description = '' }) {
-
   await fs.mkdir(getUserProjectsDir(user), { recursive: true });
 
   const id = sanitizeName(name);
@@ -210,13 +263,10 @@ export async function createProject(user, { name, description = '' }) {
     throw new Error(`Project "${filename}" already exists.`);
   }
 
-  // ----------------------------
-  // Create default files
-  // ----------------------------
-
   const createdFiles = {};
 
-  for (const type of ['art', 'gallery', 'show', 'scoring']) {
+  // Copy default art, gallery, and scoring files
+  for (const type of ['art', 'gallery', 'scoring']) {
     const newFilename = `${TYPE_PREFIX[type]}${id}.yaml`;
     const defaultsPath = path.join(DATA_DIR, 'defaults', `${type}.yaml`);
     const userFilePath = path.join(getUserProjectsDir(user), newFilename);
@@ -229,9 +279,21 @@ export async function createProject(user, { name, description = '' }) {
     createdFiles[type] = newFilename;
   }
 
-  // ----------------------------
-  // Create project file
-  // ----------------------------
+  // Generate show file from the copied gallery file
+  const showFilename = `${TYPE_PREFIX.show}${id}.yaml`;
+  const showPath = path.join(getUserProjectsDir(user), showFilename);
+
+  if (await fileExists(showPath)) {
+    throw new Error(`File "${showFilename}" already exists.`);
+  }
+
+  const galleryData = await readYamlFile(
+    path.join(getUserProjectsDir(user), createdFiles.gallery)
+  );
+
+  const showData = buildEmptyShowFromGallery(galleryData, id, createdFiles);
+  await writeYamlFile(showPath, showData, { backup: false });
+  createdFiles.show = showFilename;
 
   const data = {
     schema_version: '2.0',
@@ -239,14 +301,12 @@ export async function createProject(user, { name, description = '' }) {
       id,
       name: String(name).trim(),
       description: String(description || ''),
-
       files: {
         art: [createdFiles.art],
         gallery: [createdFiles.gallery],
         show: [createdFiles.show],
         scoring: [createdFiles.scoring],
       },
-
       active: {
         art: createdFiles.art,
         gallery: createdFiles.gallery,
@@ -260,7 +320,6 @@ export async function createProject(user, { name, description = '' }) {
 
   return { filename, ...data.project };
 }
-
 export async function getCurrentProjectFilename(user) {
   const data = await readCurrentProjectFile(user);
   return data.project || '';
@@ -286,9 +345,8 @@ export async function setCurrentProject(user, filename) {
 
 export async function getCurrentProject(user) {
   const filename = await getCurrentProjectFilename(user);
-  if (!filename) {
-    return null;
-  }
+  if (!filename) return null;
+
   return {
     filename,
     ...(await getProjectByFilename(user, filename)),
@@ -315,9 +373,7 @@ export async function updateProjectActive(user, filename, activeUpdates) {
 }
 
 export async function createProjectFile(user, filename, { type, name }) {
-  if (!TYPE_PREFIX[type]) {
-    throw new Error('Invalid file type.');
-  }
+  assertValidType(type);
 
   const slug = sanitizeName(name);
   if (!slug) {
@@ -331,20 +387,107 @@ export async function createProjectFile(user, filename, { type, name }) {
     throw new Error(`File "${newFilename}" already exists.`);
   }
 
-  const defaultsPath = path.join(DATA_DIR, 'defaults', `${type}.yaml`);
-  await fs.copyFile(defaultsPath, fullPath);
+  const projectData = validateProjectShape(
+    await readYamlFile(projectPathFromFilename(user, filename))
+  );
 
-  const projectData = validateProjectShape(await readYamlFile(projectPathFromFilename(user, filename)));
+  if (type === 'show') {
+    const activeGalleryFilename = projectData.project.active.gallery;
+
+    if (!activeGalleryFilename) {
+      throw new Error('No active gallery file is set for this project.');
+    }
+
+    const galleryPath = path.join(getUserProjectsDir(user), activeGalleryFilename);
+    const galleryData = await readYamlFile(galleryPath);
+
+    const showData = buildEmptyShowFromGallery(galleryData, slug, {
+      gallery: activeGalleryFilename,
+      scoring: projectData.project.active.scoring || ''
+    });
+
+    await writeYamlFile(fullPath, showData, { backup: false });
+  } else {
+    const defaultsPath = path.join(DATA_DIR, 'defaults', `${type}.yaml`);
+    await fs.copyFile(defaultsPath, fullPath);
+  }
+
   if (!projectData.project.files[type].includes(newFilename)) {
     projectData.project.files[type].push(newFilename);
   }
+
   if (!projectData.project.active[type]) {
     projectData.project.active[type] = newFilename;
   }
+
   await fs.mkdir(getUserProjectsDir(user), { recursive: true });
   await writeYamlFile(projectPathFromFilename(user, filename), projectData);
 
   return { filename: newFilename, type };
+}
+export async function getProjectFilePath(user, projectFilename, type, filename) {
+  assertValidType(type);
+
+  const projectData = validateProjectShape(
+    await readYamlFile(projectPathFromFilename(user, projectFilename))
+  );
+
+  if (!projectData.project.files[type].includes(filename)) {
+    throw new Error(`File "${filename}" is not listed in project for type "${type}".`);
+  }
+
+  const fullPath = path.join(getUserProjectsDir(user), filename);
+
+  if (!(await fileExists(fullPath))) {
+    throw new Error(`File "${filename}" not found.`);
+  }
+
+  return fullPath;
+}
+
+export async function uploadProjectFile(user, projectFilename, type, file, { overwrite = false } = {}) {
+  assertValidType(type);
+
+  const finalName = safeUploadedFilename(file.originalname);
+  const fullPath = path.join(getUserProjectsDir(user), finalName);
+
+  const projectData = validateProjectShape(
+    await readYamlFile(projectPathFromFilename(user, projectFilename))
+  );
+
+  try {
+    const content = await fs.readFile(file.path, 'utf8');
+    yaml.load(content);
+  } catch (err) {
+    await fs.unlink(file.path).catch(() => {});
+    throw new Error('Invalid YAML file.');
+  }
+
+  const exists = await fileExists(fullPath);
+  if (exists && !overwrite) {
+    await fs.unlink(file.path).catch(() => {});
+    throw new Error(`File "${finalName}" already exists.`);
+  }
+
+  await fs.mkdir(getUserProjectsDir(user), { recursive: true });
+  await fs.copyFile(file.path, fullPath);
+  await fs.unlink(file.path).catch(() => {});
+
+  if (!projectData.project.files[type].includes(finalName)) {
+    projectData.project.files[type].push(finalName);
+  }
+
+  if (!projectData.project.active[type]) {
+    projectData.project.active[type] = finalName;
+  }
+
+  await writeYamlFile(projectPathFromFilename(user, projectFilename), projectData);
+
+  return {
+    filename: finalName,
+    type,
+    overwritten: exists,
+  };
 }
 
 export async function getActiveFile(user, type) {
@@ -365,4 +508,57 @@ export async function getActiveFile(user, type) {
 
 export function resolveDataFilePath(user, filename) {
   return path.join(getUserProjectsDir(user), filename);
+}
+
+export async function cloneProjectFile(user, projectFilename, { type, sourceFilename, newName }) {
+  assertValidType(type);
+
+  const source = String(sourceFilename || '').trim();
+  if (!source) {
+    throw new Error('Source filename is required.');
+  }
+
+  const slug = sanitizeName(newName);
+  if (!slug) {
+    throw new Error('New file name is required.');
+  }
+
+  const newFilename = `${TYPE_PREFIX[type]}${slug}.yaml`;
+
+  const projectData = validateProjectShape(
+    await readYamlFile(projectPathFromFilename(user, projectFilename))
+  );
+
+  if (!projectData.project.files[type].includes(source)) {
+    throw new Error(`File "${source}" is not listed in project for type "${type}".`);
+  }
+
+  const sourcePath = path.join(getUserProjectsDir(user), source);
+  const destPath = path.join(getUserProjectsDir(user), newFilename);
+
+  if (!(await fileExists(sourcePath))) {
+    throw new Error(`Source file "${source}" not found.`);
+  }
+
+  if (await fileExists(destPath)) {
+    throw new Error(`File "${newFilename}" already exists.`);
+  }
+
+  await fs.copyFile(sourcePath, destPath);
+
+  if (!projectData.project.files[type].includes(newFilename)) {
+    projectData.project.files[type].push(newFilename);
+  }
+
+  if (!projectData.project.active[type]) {
+    projectData.project.active[type] = newFilename;
+  }
+
+  await writeYamlFile(projectPathFromFilename(user, projectFilename), projectData);
+
+  return {
+    type,
+    sourceFilename: source,
+    filename: newFilename,
+  };
 }
