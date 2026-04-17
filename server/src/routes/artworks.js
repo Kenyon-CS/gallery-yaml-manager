@@ -1,20 +1,29 @@
+// server/src/routes/artworks.js
 import express from 'express';
-import { createArtwork, getArtworkById, getVocabularies, listArtworks, updateArtwork } from '../services/artworkService.js';
+import {
+  createArtwork,
+  getArtworkById,
+  getVocabularies,
+  listArtworks,
+  updateArtwork
+} from '../services/artworkService.js';
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const result = await listArtworks(req.query);
+    const user = req.query.user;
+    const result = await listArtworks(user, req.query || {});
     res.json(result);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-router.get('/vocabularies', async (_req, res) => {
+router.get('/vocabularies', async (req, res) => {
   try {
-    const vocabularies = await getVocabularies();
+    const user = req.query.user;
+    const vocabularies = await getVocabularies(user);
     res.json(vocabularies);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -23,7 +32,13 @@ router.get('/vocabularies', async (_req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const artwork = await getArtworkById(req.params.id);
+    const user = req.query.user;
+    const artwork = await getArtworkById(user, req.params.id);
+
+    if (!artwork) {
+      return res.status(404).json({ error: 'Artwork not found' });
+    }
+
     res.json(artwork);
   } catch (error) {
     res.status(404).json({ error: error.message });
@@ -32,7 +47,8 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const artwork = await createArtwork(req.body);
+    const user = req.query.user;
+    const artwork = await createArtwork(user, req.body);
     res.status(201).json(artwork);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -41,7 +57,8 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const artwork = await updateArtwork(req.params.id, req.body);
+    const user = req.query.user;
+    const artwork = await updateArtwork(user, req.params.id, req.body);
     res.json(artwork);
   } catch (error) {
     const status = error.message.includes('not found') ? 404 : 400;

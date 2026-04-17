@@ -1,5 +1,7 @@
+// server/src/services/artworkService.js
 import { ART_FILE } from '../utils/filePaths.js';
 import { readYamlFile, writeYamlFile } from './yamlFileService.js';
+import { getActiveFile, resolveDataFilePath } from './projectService.js';
 
 function toNumber(value, fieldName) {
   const num = Number(value);
@@ -80,8 +82,14 @@ function buildArtworkPayload(payload, existing = null) {
   return result;
 }
 
-async function loadArtData() {
-  const data = await readYamlFile(ART_FILE);
+async function getArtFilePath(user) {
+  const filename = await getActiveFile(user, 'art');
+  return resolveDataFilePath(user, filename);
+}
+
+async function loadArtData(user) {
+  const filePath = await getArtFilePath(user);
+  const data = await readYamlFile(filePath);
 
   if (!data?.art) {
     throw new Error('art.yaml is missing top-level "art" object.');
@@ -98,12 +106,13 @@ async function loadArtData() {
   return data;
 }
 
-async function saveArtData(data) {
-  await writeYamlFile(ART_FILE, data);
+async function saveArtData(user, data) {
+  const filePath = await getArtFilePath(user);
+  await writeYamlFile(filePath, data);
 }
 
-export async function listArtworks(filters = {}) {
-  const data = await loadArtData();
+export async function listArtworks(user, filters = {}) {
+  const data = await loadArtData(user);
   let artworks = data.art.artworks;
 
   const search = (filters.search || '').toLowerCase().trim();
@@ -147,13 +156,13 @@ export async function listArtworks(filters = {}) {
   return artworks;
 }
 
-export async function getArtworkById(id) {
-  const data = await loadArtData();
+export async function getArtworkById(user, id) {
+  const data = await loadArtData(user);
   return data.art.artworks.find((artwork) => artwork.id === id) || null;
 }
 
-export async function getVocabularies() {
-  const data = await loadArtData();
+export async function getVocabularies(user) {
+  const data = await loadArtData(user);
   const vocabularies = data.art.controlled_vocabularies || {};
   const artworks = data.art.artworks || [];
 
@@ -170,8 +179,8 @@ export async function getVocabularies() {
   };
 }
 
-export async function createArtwork(payload) {
-  const data = await loadArtData();
+export async function createArtwork(user, payload) {
+  const data = await loadArtData(user);
   const artworks = data.art.artworks;
 
   const artwork = buildArtworkPayload(payload);
@@ -185,8 +194,8 @@ export async function createArtwork(payload) {
   return artwork;
 }
 
-export async function updateArtwork(id, payload) {
-  const data = await loadArtData();
+export async function updateArtwork(user, id, payload) {
+  const data = await loadArtData(user);
   const artworks = data.art.artworks;
   const index = artworks.findIndex((item) => item.id === id);
 
@@ -198,6 +207,6 @@ export async function updateArtwork(id, payload) {
   const updated = buildArtworkPayload({ ...payload, id }, existing);
 
   artworks[index] = updated;
-  await saveArtData(data);
+  await saveArtData(user, data);
   return updated;
 }
