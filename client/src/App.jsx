@@ -27,7 +27,11 @@ function LoginScreen({ onLogin }) {
       });
 
       if (!res.ok) {
-        throw new Error('Invalid username or password');
+        if (res.status === 401) {
+          throw new Error('Invalid username or password');
+        }
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || 'Login failed');
       }
 
       const data = await res.json();

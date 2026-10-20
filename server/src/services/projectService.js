@@ -221,6 +221,7 @@ function safeUploadedFilename(originalname) {
 
 export async function listProjects(user) {
   const dir = getUserProjectsDir(user);
+  await fs.mkdir(dir, { recursive: true });
   const entries = await fs.readdir(dir);
   const projectFiles = entries.filter((name) => /^project-.*\.ya?ml$/i.test(name)).sort();
 

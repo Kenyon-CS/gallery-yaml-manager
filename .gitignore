@@ -25,6 +25,12 @@ yarn-error.log*
 # Uploaded images
 server/uploads/
 
+# User accounts (copy users.example.yaml to users.yaml)
+server/data/users.yaml
+
+# Per-user project data created at runtime
+server/data/users/
+
 # YAML backups
 server/data/*.bak
 

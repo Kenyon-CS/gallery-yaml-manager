@@ -1,0 +1,25 @@
+# Sample user accounts for Gallery YAML Manager.
+#
+# Copy this file to users.yaml in the same folder and edit it:
+#
+#   cp server/data/users.example.yaml server/data/users.yaml
+#
+# users.yaml is ignored by git so real passwords are never committed.
+# Passwords are stored in plain text, so do not reuse a password you
+# use anywhere else.
+#
+# Fields:
+#   username  Login name. Also used as the folder name for this user's
+#             projects (server/data/users/<username>/), so stick to
+#             letters, numbers, dashes, and underscores.
+#   password  Login password.
+#   role      Shown next to the username in the header (e.g. admin, curator).
+
+users:
+  - username: admin
+    password: changeme
+    role: admin
+
+  - username: curator
+    password: changeme
+    role: curator
